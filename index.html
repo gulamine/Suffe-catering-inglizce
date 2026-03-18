@@ -12,14 +12,13 @@
 tailwind.config = {
   theme: {
     extend: {
-     colors: {
-  bark: '#2C1810',
-  cream: '#FDF6EC',
-  spice: '#C4713B',
-  olive: '#5B7553',
-  sand: '#E8D5B7',
-  tan: '#CBB094'   // yeni koyu bej tonu
-}
+      colors: {
+        bark: '#2C1810',
+        cream: '#FDF6EC',
+        spice: '#C4713B',
+        olive: '#5B7553',
+        sand: '#E8D5B7'
+      }
     }
   }
 }
@@ -72,10 +71,10 @@ html, body { height: 100%; margin: 0; }
   height: 1px;
 }
 
-.gallery-item { overflow: hidden; border-radius: 12px; position: relative; }
+.gallery-item { overflow: hidden; border-radius: 12px; position: relative; }S
 .gallery-item .gallery-inner { transition: transform 0.5s ease; width: 100%; height: 100%; }
 .gallery-item:hover .gallery-inner { transform: scale(1.05); }
-.gallery-item .delete-btn { position: absolute; top: 8px; right: 8px; background: rgba(196,113,59,0.9); color: rgb(144, 136, 136); width: 36px; height: 36px; border-radius: 50%; display: flex; align-items: center; justify-content: center; opacity: 1; transition: all 0.3s; cursor: pointer; z-index: 10; border: none; hover:bg-spice; font-size: 16px; }
+.gallery-item .delete-btn { position: absolute; top: 8px; right: 8px; background: rgba(196,113,59,0.9); color: white; width: 36px; height: 36px; border-radius: 50%; display: flex; align-items: center; justify-content: center; opacity: 1; transition: all 0.3s; cursor: pointer; z-index: 10; border: none; hover:bg-spice; font-size: 16px; }
 .gallery-item .delete-btn:hover { background: rgba(196,113,59,1); transform: scale(1.1); }
 
 input:focus, textarea:focus, select:focus {
@@ -84,7 +83,7 @@ input:focus, textarea:focus, select:focus {
 
 .toast-msg {
   position: fixed; bottom: 100px; left: 50%; transform: translateX(-50%);
-  background: #2C1810; color: #868078; padding: 12px 24px; border-radius: 8px;
+  background: #2C1810; color: #FDF6EC; padding: 12px 24px; border-radius: 8px;
   z-index: 1000; opacity: 0; transition: opacity 0.3s; pointer-events: none;
 }
 .toast-msg.show { opacity: 1; }
@@ -99,7 +98,7 @@ input:focus, textarea:focus, select:focus {
 }
 
 .review-card { position: relative; }
-.review-card .delete-review-btn { position: absolute; top: 8px; right: 8px; background: rgba(196,113,59,0.9); color: rgb(112, 97, 97); width: 36px; height: 36px; border-radius: 50%; display: flex; align-items: center; justify-content: center; opacity: 1; transition: all 0.3s; cursor: pointer; border: none; }
+.review-card .delete-review-btn { position: absolute; top: 8px; right: 8px; background: rgba(196,113,59,0.9); color: white; width: 36px; height: 36px; border-radius: 50%; display: flex; align-items: center; justify-content: center; opacity: 1; transition: all 0.3s; cursor: pointer; border: none; }
 .review-card .delete-review-btn:hover { background: rgba(196,113,59,1); transform: scale(1.1); }
 </style>
   <style>body { box-sizing: border-box; }</style>
@@ -111,38 +110,36 @@ input:focus, textarea:focus, select:focus {
     <div class="max-w-7xl mx-auto px-4 sm:px-6 flex items-center justify-between h-16 sm:h-20"><a href="#home" class="flex items-center gap-2 group">
       <div class="flex flex-col -space-y-1"><span class="font-display font-extrabold text-sm sm:text-base leading-tight text-spice">SUFFE</span> <span class="font-display font-light text-xs sm:text-sm tracking-widest text-olive/60">CATERING</span>
       </div>
-      <div id="navbar-logo" class="w-16 h-16 sm:w-23 sm:h-23 group-hover:scale-105 transition-transform rounded-full bg-spice/10 flex items-center justify-center">
-  <img src="logo.png" alt="Suffe Catering Logo" class="w-full h-full object-contain">
-
-</div>
-     <div class="hidden lg:flex items-center gap-6 text-sm font-medium"><a href="#home" class="nav-link text-bark/80 hover:text-spice">Ana Sayfa</a> <a href="#about" class="nav-link text-bark/80 hover:text-spice">Hakkımızda</a> <a href="#services" class="nav-link text-bark/80 hover:text-spice">Hizmetler</a> <a href="#menu" class="nav-link text-bark/80 hover:text-spice">Menü</a> <a href="#calculator" class="nav-link text-bark/80 hover:text-spice">Hesapla</a> <a href="#gallery" class="nav-link text-bark/80 hover:text-spice">Galeri</a> <a href="#reviews" class="nav-link text-bark/80 hover:text-spice">Yorumlar</a> <a href="#contact" class="nav-link text-bark/80 hover:text-spice">İletişim</a> <a href="#quote" class="bg-spice text-cream px-5 py-2.5 rounded-full text-sm font-semibold hover:bg-spice/90 transition">Teklif Al</a>
-     </div><button class="lg:hidden text-bark" id="menu-toggle" aria-label="Menüyü aç"> <i data-lucide="menu" class="w-6 h-6"></i> </button>
+      <div id="navbar-logo" class="w-15 h-15 sm:w-20 sm:h-20 group-hover:scale-105 transition-transform rounded-full bg-spice/10 flex items-center justify-center"><img src="logo.png" alt="Suffe Catering Logo" class="w-full h-full object-contain">
+      </div>
+     <div class="hidden lg:flex items-center gap-6 text-sm font-medium"><a href="#home" class="nav-link text-bark/80 hover:text-spice">Home</a> <a href="#about" class="nav-link text-bark/80 hover:text-spice">Aboout Us</a> <a href="#services" class="nav-link text-bark/80 hover:text-spice">Services</a> <a href="#menu" class="nav-link text-bark/80 hover:text-spice"><Menu></Menu></a> <a href="#calculator" class="nav-link text-bark/80 hover:text-spice">Calculate</a> <a href="#gallery" class="nav-link text-bark/80 hover:text-spice">Gallery</a> <a href="#reviews" class="nav-link text-bark/80 hover:text-spice">Reviews</a> <a href="#contact" class="nav-link text-bark/80 hover:text-spice">Contact</a> <a href="#quote" class="bg-spice text-cream px-5 py-2.5 rounded-full text-sm font-semibold hover:bg-spice/90 transition">Get a Quote</a>
+     </div><button class="lg:hidden text-bark" id="menu-toggle" aria-label="open menu"> <i data-lucide="menu" class="w-6 h-6"></i> </button>
     </div>
    </nav><!-- MOBILE MENU -->
-   <div class="mobile-menu fixed top-0 right-0 w-72 h-full bg-cream z-50 shadow-2xl p-6 pt-20" id="mobile-menu"><button class="absolute top-5 right-5" id="menu-close" aria-label="Menüyü kapat"> <i data-lucide="x" class="w-6 h-6 text-bark"></i> </button>
-    <div class="flex flex-col gap-4"><a href="#home" class="mobile-nav text-bark font-medium py-2 border-b border-sand/30">Ana Sayfa</a> <a href="#about" class="mobile-nav text-bark font-medium py-2 border-b border-sand/30">Hakkımızda</a> <a href="#services" class="mobile-nav text-bark font-medium py-2 border-b border-sand/30">Hizmetler</a> <a href="#menu" class="mobile-nav text-bark font-medium py-2 border-b border-sand/30">Menü</a> <a href="#calculator" class="mobile-nav text-bark font-medium py-2 border-b border-sand/30">Menü Hesapla</a> <a href="#gallery" class="mobile-nav text-bark font-medium py-2 border-b border-sand/30">Galeri</a> <a href="#reviews" class="mobile-nav text-bark font-medium py-2 border-b border-sand/30">Yorumlar</a> <a href="#contact" class="mobile-nav text-bark font-medium py-2 border-b border-sand/30">İletişim</a> <a href="#quote" class="bg-spice text-cream px-5 py-3 rounded-full text-center font-semibold mt-2">Teklif Al</a>
+   <div class="mobile-menu fixed top-0 right-0 w-72 h-full bg-cream z-50 shadow-2xl p-6 pt-20" id="mobile-menu"><button class="absolute top-5 right-5" id="menu-close" aria-label="menu-close "> <i data-lucide="x" class="w-6 h-6 text-bark"></i> </button>
+    <div class="flex flex-col gap-4"><a href="#home" class="mobile-nav text-bark font-medium py-2 border-b border-sand/30">Home</a> <a href="#about" class="mobile-nav text-bark font-medium py-2 border-b border-sand/30">Aboout Us</a> <a href="#services" class="mobile-nav text-bark font-medium py-2 border-b border-sand/30">Services</a> <a href="#menu" class="mobile-nav text-bark font-medium py-2 border-b border-sand/30"><Menu></Menu></a> <a href="#calculator" class="mobile-nav text-bark font-medium py-2 border-b border-sand/30">Menu Pricing Calculator</a> <a href="#gallery" class="mobile-nav text-bark font-medium py-2 border-b border-sand/30">Gallery</a> <a href="#reviews" class="mobile-nav text-bark font-medium py-2 border-b border-sand/30">Reviews</a> <a href="#contact" class="mobile-nav text-bark font-medium py-2 border-b border-sand/30">Contact</a> <a href="#quote" class="bg-spice text-cream px-5 py-3 rounded-full text-center font-semibold mt-2">Get a Quote</a></a>
     </div>
    </div><!-- HERO -->
    <section id="home" class="hero-pattern pt-20 sm:pt-24 pb-16 sm:pb-24 px-4 sm:px-6">
     <div class="max-w-7xl mx-auto flex flex-col lg:flex-row items-center gap-10 lg:gap-16">
      <div class="flex-1 text-center lg:text-left">
       <div class="anim-up inline-block bg-olive/10 text-olive text-xs font-semibold px-4 py-1.5 rounded-full mb-5">
-       🌿 2025'ten Beri Marmaris
+       🌿 Since 2025 in Marmaris
       </div>
       <h1 class="font-display font-extrabold text-4xl sm:text-5xl lg:text-6xl leading-tight text-bark anim-up-d1" id="hero-title">Suffe Catering</h1>
-      <p class="font-display text-xl sm:text-2xl text-spice mt-3 anim-up-d2" id="hero-slogan">Lezzet ve Şıklığın Buluştuğu Yer</p>
-      <p class="text-bark/70 mt-5 max-w-lg mx-auto lg:mx-0 leading-relaxed anim-up-d3" id="hero-desc">Düğün, davet, iftar ve kurumsal organizasyonlarınız için profesyonel catering hizmeti sunuyoruz. Taze malzemeler, özenli sunum ve zamanında teslimat garantisi.</p>
-      <div class="flex flex-col sm:flex-row gap-3 mt-8 justify-center lg:justify-start anim-up-d4"><a href="#menu" class="bg-spice text-cream px-7 py-3.5 rounded-full font-semibold hover:bg-spice/90 transition flex items-center justify-center gap-2"> <i data-lucide="utensils" class="w-4 h-4"></i> Menüyü Gör </a> <a href="#contact" class="border-2 border-bark/20 text-bark px-7 py-3.5 rounded-full font-semibold hover:border-spice hover:text-spice transition flex items-center justify-center gap-2"> <i data-lucide="phone" class="w-4 h-4"></i> İletişime Geç </a>
+      <p class="font-display text-xl sm:text-2xl text-spice mt-3 anim-up-d2" id="hero-slogan">Where Great Taste Comes Together</p>
+      <p class="text-bark/70 mt-5 max-w-lg mx-auto lg:mx-0 leading-relaxed anim-up-d3" id="hero-desc">Where Taste Meets Elegance  We provide professional catering services for your weddings, invitations, iftar events, and corporate organizations. Fresh ingredients, elegant presentation, and guaranteed on-time delivery.</p>
+      <div class="flex flex-col sm:flex-row gap-3 mt-8 justify-center lg:justify-start anim-up-d4"><a href="#menu" class="bg-spice text-cream px-7 py-3.5 rounded-full font-semibold hover:bg-spice/90 transition flex items-center justify-center gap-2"> <i data-lucide="utensils" class="w-4 h-4"></i> View menu</menu> </a> <a href="#contact" class="border-2 border-bark/20 text-bark px-7 py-3.5 rounded-full font-semibold hover:border-spice hover:text-spice transition flex items-center justify-center gap-2"> <i data-lucide="phone" class="w-4 h-4"></i> Contact Us</a>
       </div>
-     </div>
-     <div class="flex-1 anim-up-d2">
+     </div
+       class="flex-1 anim-up-d2">
       <div class="relative">
        <div class="w-64 h-64 sm:w-96 sm:h-96 mx-auto rounded-full bg-gradient-to-br from-spice/20 via-sand/40 to-olive/20 flex items-center justify-center anim-float">
         <svg class="w-48 sm:w-64 h-48 sm:h-64" viewbox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
          <defs>
           <radialgradient id="plateBg" cx="50%" cy="50%" r="50%">
-           <stop offset="0%" style="stop-color:#352d22;stop-opacity:1" />
-           <stop offset="100%" style="stop-color: rgba(192, 188, 184, 0.648);stop-opacity:1" />
+           <stop offset="0%" style="stop-color:#FDF6EC;stop-opacity:1" />
+           <stop offset="100%" style="stop-color:#E8D5B7;stop-opacity:1" />
           </radialgradient>
           <lineargradient id="forkGrad" x1="0%" y1="0%" x2="0%" y2="100%">
            <stop offset="0%" style="stop-color:#C4713B;stop-opacity:1" />
@@ -168,7 +165,7 @@ input:focus, textarea:focus, select:focus {
          👨‍🍳
         </div>
         <div class="text-xs font-semibold text-bark mt-1">
-         Uzman Şefler
+         Professional Chefs
         </div>
        </div>
        <div class="absolute -bottom-2 -left-2 bg-white rounded-2xl shadow-lg p-3 anim-float" style="animation-delay: 1s">
@@ -176,7 +173,7 @@ input:focus, textarea:focus, select:focus {
          ⭐
         </div>
         <div class="text-xs font-semibold text-bark mt-1">
-         500+ Etkinlik
+         500+ Event
         </div>
        </div>
       </div>
@@ -185,35 +182,35 @@ input:focus, textarea:focus, select:focus {
    </section><!-- POPULAR DISHES -->
    <section class="py-14 px-4 sm:px-6 bg-white/50">
     <div class="max-w-7xl mx-auto">
-     <h2 class="font-display font-bold text-2xl sm:text-3xl text-center mb-10">🔥 En Popüler Yemeklerimiz</h2>
+     <h2 class="font-display font-bold text-2xl sm:text-3xl text-center mb-10">🔥 Our Most Popular</h2>
      <div class="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6">
       <div class="menu-card bg-white rounded-2xl p-4 sm:p-5 shadow-sm text-center cursor-default">
        <div class="text-5xl mb-3">
         🍖
        </div>
-       <h3 class="font-display font-semibold text-bark">Tas Kebabı</h3>
-       <p class="text-xs text-bark/60 mt-1">Geleneksel lezzet</p>
+       <h3 class="font-display font-semibold text-bark">Turkish Street Food</h3>
+       <p class="text-xs text-bark/60 mt-1">Authentıc Taste</p>
       </div>
       <div class="menu-card bg-white rounded-2xl p-4 sm:p-5 shadow-sm text-center cursor-default">
        <div class="text-5xl mb-3">
         🍚
        </div>
-       <h3 class="font-display font-semibold text-bark">Tavuk Pilav</h3>
-       <p class="text-xs text-bark/60 mt-1">Herkesin favorisi</p>
+       <h3 class="font-display font-semibold text-bark">Chicken with Rice</h3>
+       <p class="text-xs text-bark/60 mt-1">Everyone's Favorite</p>
       </div>
       <div class="menu-card bg-white rounded-2xl p-4 sm:p-5 shadow-sm text-center cursor-default">
        <div class="text-5xl mb-3">
         🥘
        </div>
-       <h3 class="font-display font-semibold text-bark">Güveç</h3>
-       <p class="text-xs text-bark/60 mt-1">Fırın lezzeti</p>
+       <h3 class="font-display font-semibold text-bark">Turkısh Stew</h3>
+       <p class="text-xs text-bark/60 mt-1">Oven Baked Delights</p>
       </div>
       <div class="menu-card bg-white rounded-2xl p-4 sm:p-5 shadow-sm text-center cursor-default">
        <div class="text-5xl mb-3">
         🍮
        </div>
-       <h3 class="font-display font-semibold text-bark">Baklava</h3>
-       <p class="text-xs text-bark/60 mt-1">Tatlı keyfi</p>
+       <h3 class="font-display font-semibold text-bark">Turkish Dessert</h3>
+       <p class="text-xs text-bark/60 mt-1">Sweet Delight</p>
       </div>
      </div>
     </div>
@@ -228,10 +225,10 @@ input:focus, textarea:focus, select:focus {
          👨‍🍳
         </div>
         <div class="font-display font-bold text-2xl text-bark">
-         15+
+         2+
         </div>
         <div class="text-xs text-bark/60">
-         Yıllık Tecrübe
+         Years of Experience
         </div>
        </div>
        <div class="bg-gradient-to-br from-olive/15 to-sand/30 rounded-2xl p-6 flex flex-col items-center justify-center text-center h-40">
@@ -242,7 +239,7 @@ input:focus, textarea:focus, select:focus {
          500+
         </div>
         <div class="text-xs text-bark/60">
-         Organizasyon
+         Organization
         </div>
        </div>
        <div class="bg-gradient-to-br from-sand/40 to-cream rounded-2xl p-6 flex flex-col items-center justify-center text-center h-40">
@@ -253,7 +250,7 @@ input:focus, textarea:focus, select:focus {
          10K+
         </div>
         <div class="text-xs text-bark/60">
-         Mutlu Müşteri
+         Happy Customer 
         </div>
        </div>
        <div class="bg-gradient-to-br from-spice/10 to-olive/10 rounded-2xl p-6 flex flex-col items-center justify-center text-center h-40">
@@ -264,29 +261,29 @@ input:focus, textarea:focus, select:focus {
          A+
         </div>
         <div class="text-xs text-bark/60">
-         Hijyen Sertifikası
+         Hygiene Certificate
         </div>
        </div>
       </div>
      </div>
      <div class="flex-1">
       <div class="text-sm font-semibold text-spice uppercase tracking-wider mb-2">
-       Hakkımızda
-      </div>
-      <h2 class="font-display font-bold text-3xl sm:text-4xl text-bark mb-5">Geleneksel Lezzet, Modern Sunum</h2>
-      <p class="text-bark/70 leading-relaxed mb-4" id="about-text">2025 yılından beri marmaris 'de toplu yemek ve catering hizmeti sunmaktayız. Taze ve doğal malzemelerle, hijyen standartlarına uygun olarak hazırlanan yemeklerimiz, profesyonel şeflerimiz tarafından özenle pişirilmektedir.</p>
+       Aboout Us 
+      </div> 
+      <h2 class="font-display font-bold text-3xl sm:text-4xl text-bark mb-5">Authentic Taste, Modern Plating</h2>
+      <p class="text-bark/70 leading-relaxed mb-4" id="about-text">Since 2025, we have been providing mass catering and food services in Marmaris. Our meals are prepared with fresh and natural ingredients in accordance with hygiene standards and are carefully cooked by our professional chefs.</p>
       <div class="space-y-3 mt-6">
        <div class="flex items-center gap-3">
-        <span class="w-8 h-8 bg-olive/10 rounded-full flex items-center justify-center text-olive"><i data-lucide="check" class="w-4 h-4"></i></span><span class="text-sm">%100 taze ve doğal malzeme</span>
+        <span class="w-8 h-8 bg-olive/10 rounded-full flex items-center justify-center text-olive"><i data-lucide="check" class="w-4 h-4"></i></span><span class="text-sm">%100 natural matarial</span>
        </div>
        <div class="flex items-center gap-3">
-        <span class="w-8 h-8 bg-olive/10 rounded-full flex items-center justify-center text-olive"><i data-lucide="check" class="w-4 h-4"></i></span><span class="text-sm">ISO hijyen sertifikalı mutfak</span>
+        <span class="w-8 h-8 bg-olive/10 rounded-full flex items-center justify-center text-olive"><i data-lucide="check" class="w-4 h-4"></i></span><span class="text-sm">ISO hygıene certified kitchen</span>
        </div>
        <div class="flex items-center gap-3">
-        <span class="w-8 h-8 bg-olive/10 rounded-full flex items-center justify-center text-olive"><i data-lucide="check" class="w-4 h-4"></i></span><span class="text-sm">Zamanında teslimat garantisi</span>
+        <span class="w-8 h-8 bg-olive/10 rounded-full flex items-center justify-center text-olive"><i data-lucide="check" class="w-4 h-4"></i></span><span class="text-sm">on-time delivery guaranteed</span>
        </div>
        <div class="flex items-center gap-3">
-        <span class="w-8 h-8 bg-olive/10 rounded-full flex items-center justify-center text-olive"><i data-lucide="check" class="w-4 h-4"></i></span><span class="text-sm">Deneyimli şef kadrosu</span>
+        <span class="w-8 h-8 bg-olive/10 rounded-full flex items-center justify-center text-olive"><i data-lucide="check" class="w-4 h-4"></i></span><span class="text-sm">Experienced chef team</span>
        </div>
       </div>
      </div>
@@ -297,73 +294,73 @@ input:focus, textarea:focus, select:focus {
     <div class="max-w-7xl mx-auto">
      <div class="text-center mb-12">
       <div class="text-sm font-semibold text-spice uppercase tracking-wider mb-2">
-       Hizmetlerimiz
+       Our Services
       </div>
-      <h2 class="font-display font-bold text-3xl sm:text-4xl text-bark">Her Organizasyon İçin Yanınızdayız</h2>
+      <h2 class="font-display font-bold text-3xl sm:text-4xl text-bark">We Are With You for Every Organization</h2>
      </div>
      <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
       <div class="bg-white rounded-2xl p-6 shadow-sm hover:shadow-md transition group cursor-default">
        <div class="text-4xl mb-4 group-hover:scale-110 transition-transform">
         💒
        </div>
-       <h3 class="font-display font-semibold text-lg text-bark">Düğün Yemekleri</h3>
-       <p class="text-sm text-bark/60 mt-2">Özel gününüzü unutulmaz kılacak menüler</p>
+       <h3 class="font-display font-semibold text-lg text-bark">Wedding Catering</h3>
+       <p class="text-sm text-bark/60 mt-2">Menus that will make your special day unforgettable</p>
       </div>
       <div class="bg-white rounded-2xl p-6 shadow-sm hover:shadow-md transition group cursor-default">
        <div class="text-4xl mb-4 group-hover:scale-110 transition-transform">
         🌙
        </div>
-       <h3 class="font-display font-semibold text-lg text-bark">İftar Organizasyonu</h3>
-       <p class="text-sm text-bark/60 mt-2">Ramazan ayına özel zengin iftar menüleri</p>
+       <h3 class="font-display font-semibold text-lg text-bark">Iftar Catering</h3>
+       <p class="text-sm text-bark/60 mt-2">Rich Iftar menus specially prepared for the month of Ramadan</p>
       </div>
       <div class="bg-white rounded-2xl p-6 shadow-sm hover:shadow-md transition group cursor-default">
        <div class="text-4xl mb-4 group-hover:scale-110 transition-transform">
         🏢
        </div>
-       <h3 class="font-display font-semibold text-lg text-bark">İş Yeri Yemekleri</h3>
-       <p class="text-sm text-bark/60 mt-2">Kurumsal firmalar için günlük yemek servisi</p>
+       <h3 class="font-display font-semibold text-lg text-bark">Corporate Catering</h3>
+       <p class="text-sm text-bark/60 mt-2">Daily meal service for corporate companies</p>
       </div>
       <div class="bg-white rounded-2xl p-6 shadow-sm hover:shadow-md transition group cursor-default">
        <div class="text-4xl mb-4 group-hover:scale-110 transition-transform">
         🎉
        </div>
-       <h3 class="font-display font-semibold text-lg text-bark">Davet &amp; Etkinlik</h3>
-       <p class="text-sm text-bark/60 mt-2">Nişan, doğum günü, özel davetler</p>
+       <h3 class="font-display font-semibold text-lg text-bark">Event Catering &amp; Event</h3>
+       <p class="text-sm text-bark/60 mt-2">Engagements, birthdays, and private events</p>
       </div>
       <div class="bg-white rounded-2xl p-6 shadow-sm hover:shadow-md transition group cursor-default">
        <div class="text-4xl mb-4 group-hover:scale-110 transition-transform">
         🍱
        </div>
-       <h3 class="font-display font-semibold text-lg text-bark">Toplu Yemek</h3>
-       <p class="text-sm text-bark/60 mt-2">50-5000 kişilik toplu yemek hizmeti</p>
+       <h3 class="font-display font-semibold text-lg text-bark">Mass Catering</h3>
+       <p class="text-sm text-bark/60 mt-2">50-5000 Personalized Mass Catering Service</p>
       </div>
       <div class="bg-white rounded-2xl p-6 shadow-sm hover:shadow-md transition group cursor-default">
        <div class="text-4xl mb-4 group-hover:scale-110 transition-transform">
         🎓
        </div>
-       <h3 class="font-display font-semibold text-lg text-bark">Okul Yemekleri</h3>
-       <p class="text-sm text-bark/60 mt-2">Besleyici ve sağlıklı okul menüleri</p>
+       <h3 class="font-display font-semibold text-lg text-bark">School Meals</h3>
+       <p class="text-sm text-bark/60 mt-2">Nutritious and healthy school menus</p>
       </div>
       <div class="bg-white rounded-2xl p-6 shadow-sm hover:shadow-md transition group cursor-default">
        <div class="text-4xl mb-4 group-hover:scale-110 transition-transform">
         🕊️
        </div>
-       <h3 class="font-display font-semibold text-lg text-bark">Cenaze Yemekleri</h3>
-       <p class="text-sm text-bark/60 mt-2">Zor günlerinizde yanınızdayız</p>
+       <h3 class="font-display font-semibold text-lg text-bark">Funeral Catering</h3>
+       <p class="text-sm text-bark/60 mt-2">We are by your side in difficult times</p>
       </div>
       <div class="bg-white rounded-2xl p-6 shadow-sm hover:shadow-md transition group cursor-default">
        <div class="text-4xl mb-4 group-hover:scale-110 transition-transform">
         🎂
        </div>
-       <h3 class="font-display font-semibold text-lg text-bark">Özel Gün</h3>
-       <p class="text-sm text-bark/60 mt-2">Doğum günü, kutlama organizasyonları</p>
+       <h3 class="font-display font-semibold text-lg text-bark">  Special Occasion</h3>
+       <p class="text-sm text-bark/60 mt-2">Birthdays and celebration events</p>
       </div>
       <div class="bg-white rounded-2xl p-6 shadow-sm hover:shadow-md transition group cursor-default">
        <div class="text-4xl mb-4 group-hover:scale-110 transition-transform">
         🪑
        </div>
-       <h3 class="font-display font-semibold text-lg text-bark">Masa &amp; Sandalye Kiralama</h3>
-       <p class="text-sm text-bark/60 mt-2">Profesyonel masa, sandalye ve mobilya hizmeti</p>
+       <h3 class="font-display font-semibold text-lg text-bark">Masa &amp;  Chair Rental</h3>
+       <p class="text-sm text-bark/60 mt-2">Professional table, chair, and furniture services</p>
       </div>
      </div>
     </div>
@@ -372,9 +369,9 @@ input:focus, textarea:focus, select:focus {
    <section class="py-14 px-4 sm:px-6 bg-gradient-to-r from-spice/5 via-cream to-olive/5">
     <div class="max-w-3xl mx-auto text-center">
      <div class="inline-block bg-spice/10 text-spice text-xs font-semibold px-4 py-1.5 rounded-full mb-4">
-      📅 Her Gün Güncellenir
+      📅   Updated Daily
      </div>
-     <h2 class="font-display font-bold text-3xl text-bark mb-8">🍽️ Günün Menüsü</h2>
+     <h2 class="font-display font-bold text-3xl text-bark mb-8">🍽️ Today's Menu </h2>
      <div class="bg-white rounded-2xl shadow-sm p-6 sm:p-8">
       <div class="grid grid-cols-2 sm:grid-cols-3 gap-4">
        <div class="p-3 rounded-xl bg-cream/70">
@@ -427,7 +424,7 @@ input:focus, textarea:focus, select:focus {
        </div>
       </div>
       <div class="mt-6 text-sm text-bark/50">
-       Kişi başı: <span class="font-bold text-spice text-lg">200 ₺</span>
+       Kişi başı: <span class="font-bold text-spice text-lg">150 ₺</span>
       </div>
      </div>
     </div>
@@ -437,9 +434,9 @@ input:focus, textarea:focus, select:focus {
     <div class="max-w-7xl mx-auto">
      <div class="text-center mb-10">
       <div class="text-sm font-semibold text-spice uppercase tracking-wider mb-2">
-       Menümüz
+       Our Menu
       </div>
-      <h2 class="font-display font-bold text-3xl sm:text-4xl text-bark">Lezzetli Seçenekler</h2>
+      <h2 class="font-display font-bold text-3xl sm:text-4xl text-bark"> Delicious Options</h2>
      </div><!-- Menu Tabs -->
      <div class="flex flex-wrap justify-center gap-2 mb-10" id="menu-tabs"><button class="menu-tab active bg-spice text-cream px-5 py-2 rounded-full text-sm font-medium transition" data-cat="soups">🍲 Çorbalar</button> <button class="menu-tab bg-white text-bark/70 px-5 py-2 rounded-full text-sm font-medium transition hover:bg-spice/10" data-cat="mains">🥘 Ana Yemekler</button> <button class="menu-tab bg-white text-bark/70 px-5 py-2 rounded-full text-sm font-medium transition hover:bg-spice/10" data-cat="sides">🍚 Yan Yemekler</button> <button class="menu-tab bg-white text-bark/70 px-5 py-2 rounded-full text-sm font-medium transition hover:bg-spice/10" data-cat="desserts">🍰 Tatlılar</button> <button class="menu-tab bg-white text-bark/70 px-5 py-2 rounded-full text-sm font-medium transition hover:bg-spice/10" data-cat="drinks">🥤 İçecekler</button>
      </div>
@@ -451,41 +448,41 @@ input:focus, textarea:focus, select:focus {
     <div class="max-w-3xl mx-auto">
      <div class="text-center mb-10">
       <div class="text-sm font-semibold text-spice uppercase tracking-wider mb-2">
-       Online Hesaplama
+       Online Calculator
       </div>
-      <h2 class="font-display font-bold text-3xl sm:text-4xl text-bark">🧮 Menü Hesaplama</h2>
-      <p class="text-bark/60 mt-3">Kişi sayısı ve menü seçerek tahmini fiyat hesaplayın</p>
+      <h2 class="font-display font-bold text-3xl sm:text-4xl text-bark">🧮 Menu Calculator</h2>
+      <p class="text-bark/60 mt-3"> Calculate the estimated price by selecting the number of people and the menu</p>
      </div>
      <div class="bg-white rounded-2xl shadow-sm p-6 sm:p-8">
       <div class="grid sm:grid-cols-2 gap-5 mb-6">
-       <div><label for="calc-org" class="block text-sm font-medium text-bark mb-2">Organizasyon Türü</label> <select id="calc-org" class="w-full border border-sand rounded-xl px-4 py-3 text-sm bg-cream/30"> <option value="wedding">💒 Düğün</option> <option value="iftar">🌙 İftar</option> <option value="engagement">💍 Nişan</option> <option value="funeral">🕊️ Cenaze</option> <option value="birthday">🎂 Doğum Günü</option> <option value="corporate">🏢 Şirket Yemeği</option> </select>
+       <div><label for="calc-org" class="block text-sm font-medium text-bark mb-2"> Type of Event</label> <select id="calc-org" class="w-full border border-sand rounded-xl px-4 py-3 text-sm bg-cream/30"> <option value="wedding">💒 Wedding</option> <option value="iftar">🌙 İftar</option> <option value="engagement">💍 Engagement</option> <option value="funeral">🕊️ Funeral</option> <option value="birthday">🎂 Birthday</option> <option value="corporate">🏢 Corporate Meal</option> </select>
        </div>
-       <div><label for="calc-menu" class="block text-sm font-medium text-bark mb-2">Menü Seçimi</label> <select id="calc-menu" class="w-full border border-sand rounded-xl px-4 py-3 text-sm bg-cream/30"> <option value="ekonomik">Ekonomik Menü</option> <option value="standart">Standart Menü</option> <option value="premium">Premium Menü</option> <option value="luks">Lüks Menü</option> </select>
+       <div><label for="calc-menu" class="block text-sm font-medium text-bark mb-2">Menu Selection</label> <select id="calc-menu" class="w-full border border-sand rounded-xl px-4 py-3 text-sm bg-cream/30"> <option value="ekonomik">Economy Menu</option> <option value="standart">Standard Menu</option> <option value="premium">Premium Menu</option> <option value="luks">Luxury Menu</option> </select>
        </div>
       </div>
       <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 mb-6 p-4 bg-white/50 rounded-xl">
        <div><label for="price-ekonomik" class="block text-xs font-medium text-bark mb-1">Ekonomik (₺)</label> <input type="number" id="price-ekonomik" value="150" min="0" step="10" class="w-full border border-sand rounded-lg px-3 py-2 text-sm bg-cream/30">
        </div>
-       <div><label for="price-standart" class="block text-xs font-medium text-bark mb-1">Standart (₺)</label> <input type="number" id="price-standart" value="200" min="0" step="10" class="w-full border border-sand rounded-lg px-3 py-2 text-sm bg-cream/30">
+       <div><label for="price-standart" class="block text-xs font-medium text-bark mb-1">Standard (₺)</label> <input type="number" id="price-standart" value="200" min="0" step="10" class="w-full border border-sand rounded-lg px-3 py-2 text-sm bg-cream/30">
        </div>
        <div><label for="price-premium" class="block text-xs font-medium text-bark mb-1">Premium (₺)</label> <input type="number" id="price-premium" value="300" min="0" step="10" class="w-full border border-sand rounded-lg px-3 py-2 text-sm bg-cream/30">
        </div>
-       <div><label for="price-luks" class="block text-xs font-medium text-bark mb-1">Lüks (₺)</label> <input type="number" id="price-luks" value="450" min="0" step="10" class="w-full border border-sand rounded-lg px-3 py-2 text-sm bg-cream/30">
+       <div><label for="price-luks" class="block text-xs font-medium text-bark mb-1">Luxury (₺)</label> <input type="number" id="price-luks" value="450" min="0" step="10" class="w-full border border-sand rounded-lg px-3 py-2 text-sm bg-cream/30">
        </div>
       </div>
-      <div class="mb-6"><label for="calc-people" class="block text-sm font-medium text-bark mb-2">Kişi Sayısı</label>
+      <div class="mb-6"><label for="calc-people" class="block text-sm font-medium text-bark mb-2">Number of People</label>
        <div class="flex items-center gap-3"><button class="w-10 h-10 rounded-full bg-spice/10 text-spice flex items-center justify-center font-bold text-lg hover:bg-spice/20 transition" id="calc-minus">−</button> <input type="number" id="calc-people" value="50" min="10" max="5000" class="flex-1 border border-sand rounded-xl px-4 py-3 text-center text-lg font-semibold bg-cream/30"> <button class="w-10 h-10 rounded-full bg-spice/10 text-spice flex items-center justify-center font-bold text-lg hover:bg-spice/20 transition" id="calc-plus">+</button>
        </div>
-      </div><button class="w-full bg-spice text-cream py-3.5 rounded-xl font-semibold hover:bg-spice/90 transition" id="calc-btn">Hesapla</button>
+      </div><button class="w-full bg-spice text-cream py-3.5 rounded-xl font-semibold hover:bg-spice/90 transition" id="calc-btn">Calculate</button>
       <div id="calc-result" class="hidden mt-6 calc-result rounded-xl p-5 text-center">
        <div class="text-sm text-bark/60 mb-1">
-        Tahmini Toplam Fiyat
+        Estimated Total Price
        </div>
        <div class="font-display font-bold text-3xl text-spice" id="calc-total">
         0 ₺
        </div>
        <div class="text-xs text-bark/50 mt-2">
-        * Fiyatlar tahminidir. Kesin fiyat için teklif alın.
+        * Prices are estimates. Please request a quote for the exact price.
        </div><a href="#quote" class="inline-block mt-4 bg-spice text-cream px-6 py-2.5 rounded-full text-sm font-semibold hover:bg-spice/90 transition">Teklif Al</a>
       </div>
      </div>
@@ -496,9 +493,9 @@ input:focus, textarea:focus, select:focus {
     <div class="max-w-7xl mx-auto">
      <div class="text-center mb-10">
       <div class="text-sm font-semibold text-spice uppercase tracking-wider mb-2">
-       Galeri
+       Gallery
       </div>
-      <h2 class="font-display font-bold text-3xl sm:text-4xl text-bark">📸 Organizasyonlarımız</h2><button id="add-gallery-btn" class="mt-4 bg-spice text-cream px-5 py-2.5 rounded-full text-sm font-semibold hover:bg-spice/90 transition inline-flex items-center gap-2"> <i data-lucide="plus" class="w-4 h-4"></i> Fotoğraf Ekle </button>
+      <h2 class="font-display font-bold text-3xl sm:text-4xl text-bark">📸Our Events</h2><button id="add-gallery-btn" class="mt-4 bg-spice text-cream px-5 py-2.5 rounded-full text-sm font-semibold hover:bg-spice/90 transition inline-flex items-center gap-2"> <i data-lucide="plus" class="w-4 h-4"></i> Add Photo </button>
      </div><input type="file" id="gallery-input" accept="image/*" class="hidden">
      <div class="grid grid-cols-2 md:grid-cols-3 gap-4" id="gallery-container">
      </div>
@@ -509,17 +506,17 @@ input:focus, textarea:focus, select:focus {
     <div class="max-w-7xl mx-auto">
      <div class="text-center mb-10">
       <div class="text-sm font-semibold text-spice uppercase tracking-wider mb-2">
-       Müşteri Yorumları
+      Customer Reviews 
       </div>
-      <h2 class="font-display font-bold text-3xl sm:text-4xl text-bark">Neler Diyorlar?</h2><button id="add-review-btn" class="mt-4 bg-spice text-cream px-5 py-2.5 rounded-full text-sm font-semibold hover:bg-spice/90 transition inline-flex items-center gap-2"> <i data-lucide="plus" class="w-4 h-4"></i> Yorum Ekle </button>
+      <h2 class="font-display font-bold text-3xl sm:text-4xl text-bark">What They Say?</h2><button id="add-review-btn" class="mt-4 bg-spice text-cream px-5 py-2.5 rounded-full text-sm font-semibold hover:bg-spice/90 transition inline-flex items-center gap-2"> <i data-lucide="plus" class="w-4 h-4"></i>Add Comment</button>
      </div>
      <div id="reviews-container" class="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
      </div><!-- References -->
      <div class="mt-12 text-center">
       <div class="text-sm font-semibold text-bark/50 mb-4">
-       Referanslarımız
+       Our References
       </div>
-      <div class="flex flex-wrap justify-center gap-6 text-bark/30 text-sm font-medium"><span class="px-4 py-2 bg-white rounded-full">🏢 ABC Holding</span> <span class="px-4 py-2 bg-white rounded-full">🏫 XYZ Okulları</span> <span class="px-4 py-2 bg-white rounded-full">🏥 123 Hastanesi</span> <span class="px-4 py-2 bg-white rounded-full">🏭 DEF Fabrika</span>
+      <div class="flex flex-wrap justify-center gap-6 text-bark/30 text-sm font-medium"><span class="px-4 py-2 bg-white rounded-full">🏢 ABC Holding</span> <span class="px-4 py-2 bg-white rounded-full">🏫 XYZ Schools</span> <span class="px-4 py-2 bg-white rounded-full">🏥 123 Hospitals</span> <span class="px-4 py-2 bg-white rounded-full">🏭 DEF Factory</span>
       </div>
      </div>
     </div>
@@ -529,29 +526,29 @@ input:focus, textarea:focus, select:focus {
     <div class="max-w-3xl mx-auto">
      <div class="text-center mb-10">
       <div class="text-sm font-semibold text-spice uppercase tracking-wider mb-2">
-       Teklif Al
+       Request a Quote
       </div>
-      <h2 class="font-display font-bold text-3xl sm:text-4xl text-bark">📋 Fiyat Teklifi İsteyin</h2>
+      <h2 class="font-display font-bold text-3xl sm:text-4xl text-bark">📋 Request a Price Quote</h2>
      </div>
      <form id="quote-form" class="bg-white rounded-2xl shadow-sm p-6 sm:p-8 space-y-5">
       <div class="grid sm:grid-cols-2 gap-5">
-       <div><label for="q-name" class="block text-sm font-medium text-bark mb-2">Ad Soyad</label> <input type="text" id="q-name" required class="w-full border border-sand rounded-xl px-4 py-3 text-sm bg-cream/30" placeholder="Adınız Soyadınız">
+       <div><label for="q-name" class="block text-sm font-medium text-bark mb-2">Full Name</label> <input type="text" id="q-name" required class="w-full border border-sand rounded-xl px-4 py-3 text-sm bg-cream/30" placeholder="Full Name">
        </div>
-       <div><label for="q-phone" class="block text-sm font-medium text-bark mb-2">Telefon</label> <input type="tel" id="q-phone" required class="w-full border border-sand rounded-xl px-4 py-3 text-sm bg-cream/30" placeholder="05xx xxx xx xx">
+       <div><label for="q-phone" class="block text-sm font-medium text-bark mb-2">Phone</label> <input type="tel" id="q-phone" required class="w-full border border-sand rounded-xl px-4 py-3 text-sm bg-cream/30" placeholder="0534 515 73  63">
        </div>
       </div>
       <div class="grid sm:grid-cols-2 gap-5">
-       <div><label for="q-people" class="block text-sm font-medium text-bark mb-2">Kişi Sayısı</label> <input type="number" id="q-people" min="10" class="w-full border border-sand rounded-xl px-4 py-3 text-sm bg-cream/30" placeholder="50">
+       <div><label for="q-people" class="block text-sm font-medium text-bark mb-2">Number of Guests</label> <input type="number" id="q-people" min="10" class="w-full border border-sand rounded-xl px-4 py-3 text-sm bg-cream/30" placeholder="50">
        </div>
-       <div><label for="q-type" class="block text-sm font-medium text-bark mb-2">Organizasyon Türü</label> <select id="q-type" class="w-full border border-sand rounded-xl px-4 py-3 text-sm bg-cream/30"> <option>Düğün</option><option>İftar</option><option>Nişan</option><option>Cenaze</option><option>Doğum Günü</option><option>Şirket Yemeği</option><option>Diğer</option> </select>
+       <div><label for="q-type" class="block text-sm font-medium text-bark mb-2">Type of Event</label> <select id="q-type" class="w-full border border-sand rounded-xl px-4 py-3 text-sm bg-cream/30"> <option>Wedding</option><option>İftar</option><option>Engagement</option><option>Funeral</option><option>Birthday</option><option>Corporate Meal</option><option>Other</option> </select>
        </div>
       </div>
-      <div><label for="q-date" class="block text-sm font-medium text-bark mb-2">Tarih</label> <input type="date" id="q-date" class="w-full border border-sand rounded-xl px-4 py-3 text-sm bg-cream/30">
+      <div><label for="q-date" class="block text-sm font-medium text-bark mb-2">Date</label> <input type="date" id="q-date" class="w-full border border-sand rounded-xl px-4 py-3 text-sm bg-cream/30">
       </div>
-      <div><label for="q-note" class="block text-sm font-medium text-bark mb-2">Notunuz</label> <textarea id="q-note" rows="3" class="w-full border border-sand rounded-xl px-4 py-3 text-sm bg-cream/30" placeholder="Özel isteklerinizi yazın..."></textarea>
-      </div><button type="submit" class="w-full bg-spice text-cream py-3.5 rounded-xl font-semibold hover:bg-spice/90 transition flex items-center justify-center gap-2"> <i data-lucide="send" class="w-4 h-4"></i> Teklif İste </button>
+      <div><label for="q-note" class="block text-sm font-medium text-bark mb-2">Your Note</label> <textarea id="q-note" rows="3" class="w-full border border-sand rounded-xl px-4 py-3 text-sm bg-cream/30" placeholder="Write down your special requests."></textarea>
+      </div><button type="submit" class="w-full bg-spice text-cream py-3.5 rounded-xl font-semibold hover:bg-spice/90 transition flex items-center justify-center gap-2"> <i data-lucide="send" class="w-4 h-4"></i> Request Quote </button>
       <div id="quote-success" class="hidden text-center text-olive font-medium py-3 bg-olive/10 rounded-xl">
-       ✅ Talebiniz alındı! En kısa sürede dönüş yapacağız.
+       ✅ Your request has been received! We will get back to you as soon as possible.
       </div>
      </form>
     </div>
@@ -561,20 +558,20 @@ input:focus, textarea:focus, select:focus {
     <div class="max-w-7xl mx-auto">
      <div class="text-center mb-10">
       <div class="text-sm font-semibold text-spice uppercase tracking-wider mb-2">
-       İletişim
+      Contact
       </div>
-      <h2 class="font-display font-bold text-3xl sm:text-4xl text-bark">Bize Ulaşın</h2>
+      <h2 class="font-display font-bold text-3xl sm:text-4xl text-bark">Contact Us</h2>
      </div>
-     <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-5"><a href="tel:0542 417 04 46" class="bg-white rounded-2xl p-6 text-center shadow-sm hover:shadow-md transition group cursor-pointer">
+     <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-5"><a href="tel:05345157363" class="bg-white rounded-2xl p-6 text-center shadow-sm hover:shadow-md transition group cursor-pointer">
        <div class="w-12 h-12 bg-spice/10 rounded-full flex items-center justify-center mx-auto mb-3 group-hover:bg-spice/20 transition">
         <i data-lucide="phone" class="w-5 h-5 text-spice"></i>
        </div>
        <div class="text-sm font-semibold text-bark">
-        Telefon
+        phone
        </div>
        <div class="text-sm text-spice mt-1 font-medium hover:underline" id="contact-phone">
         0542 417 04 46
-       </div></a> <a href="https://wa.me/905345177363?text=Merhaba,%20catering%20hizmeti%20hakkında%20bilgi%20almak%20istiyorum." target="_blank" rel="noopener noreferrer" class="bg-white rounded-2xl p-6 text-center shadow-sm hover:shadow-md transition group cursor-pointer">
+       </div></a> <a href="https://wa.me/905345157363?text=hello,%20catering%20service%20about%20bilgi%20FGet%20 l Want." target="_blank" rel="noopener noreferrer" class="bg-white rounded-2xl p-6 text-center shadow-sm hover:shadow-md transition group cursor-pointer">
        <div class="w-12 h-12 bg-green-500/10 rounded-full flex items-center justify-center mx-auto mb-3 group-hover:bg-green-500/20 transition">
         <i data-lucide="message-circle" class="w-5 h-5 text-green-600"></i>
        </div>
@@ -597,7 +594,7 @@ input:focus, textarea:focus, select:focus {
         <i data-lucide="map-pin" class="w-5 h-5 text-red-500"></i>
        </div>
        <div class="text-sm font-semibold text-bark">
-        Adres
+        Adress
        </div>
        <div class="text-sm text-red-500 mt-1 font-medium hover:underline" id="contact-address">
         Muğla, Marmaris, Türkiye
@@ -609,20 +606,32 @@ input:focus, textarea:focus, select:focus {
         📍
        </div>
        <div class="text-sm">
-        Google Harita buraya eklenecek
+       Google Map will be added here 
        </div>
       </div>
      </div>
     </div>
    </section><!-- FOOTER -->
-   <!-- Head kısmına ekle (sadece bir kez) -->
+
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
-<!-- Footer veya istediğin yere ekle -->
+<!-- Footer içine -->
 <footer class="bg-gray-100 p-4 text-center">
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+<footer class="bg-gray-100 p-6 text-center flex flex-col items-center gap-4">
+  
+  <!-- Logo -->
+  <img src="logo.png" alt="Suffe Catering Logo" class="w-32 h-auto">
+
   <a href="https://www.instagram.com/suffecatering/" target="_blank" class="inline-block bg-pink-500 text-white p-4 rounded-full text-2xl hover:bg-pink-600 transition">
     <i class="fab fa-instagram"></i>
   </a>
+
+  <!-- İsteğe bağlı yazı -->
+  <p class="text-gray-600 text-sm">© 2026 Suffe Catering</p>
+</footer>
 </footer>
    <footer class="bg-bark text-cream/80 py-12 px-4 sm:px-6">
     <div class="max-w-7xl mx-auto">
@@ -642,31 +651,31 @@ input:focus, textarea:focus, select:focus {
          </g> <circle cx="50" cy="50" r="3" fill="#C4713B" opacity="0.4" />
         </svg><span class="font-display font-bold text-xl text-cream" id="footer-logo">Suffe Catering</span>
        </div>
-       <p class="text-sm text-cream/50 leading-relaxed">Toplu yemek ve organizasyon hizmetleri. 2025'dan beri lezzet ve kaliteyle yanınızdayız.</p>
+       <p class="text-sm text-cream/50 leading-relaxed">Mass catering and event services. Serving you with taste and quality since 2025.</p>
       </div>
       <div>
-       <h4 class="font-display font-semibold text-cream mb-4">Hizmetler</h4>
+       <h4 class="font-display font-semibold text-cream mb-4">Services</h4>
        <ul class="space-y-2 text-sm text-cream/50">
-        <li>Düğün Yemekleri</li>
-        <li>İftar Organizasyonu</li>
-        <li>İş Yeri Yemekleri</li>
-        <li>Toplu Yemek</li>
+        <li>Wedding Catering</li>
+        <li>Iftar Catering</li>
+        <li>Corporate Catering</li>
+        <li>Mass Catering</li>
        </ul>
       </div>
       <div>
-       <h4 class="font-display font-semibold text-cream mb-4">Hızlı Linkler</h4>
+       <h4 class="font-display font-semibold text-cream mb-4">Quick Links</h4>
        <ul class="space-y-2 text-sm">
-        <li><a href="#menu" class="text-cream/50 hover:text-spice transition">Menü</a></li>
-        <li><a href="#about" class="text-cream/50 hover:text-spice transition">Hakkımızda</a></li>
-        <li><a href="#gallery" class="text-cream/50 hover:text-spice transition">Galeri</a></li>
-        <li><a href="#quote" class="text-cream/50 hover:text-spice transition">Teklif Al</a></li>
+        <li><a href="#menu" class="text-cream/50 hover:text-spice transition">Menu</a></li>
+        <li><a href="#about" class="text-cream/50 hover:text-spice transition">About Us</a></li>
+        <li><a href="#gallery" class="text-cream/50 hover:text-spice transition">Gallery</a></li>
+        <li><a href="#quote" class="text-cream/50 hover:text-spice transition">Request a Quote</a></li>
        </ul>
       </div>
       <div>
-       <h4 class="font-display font-semibold text-cream mb-4">İletişim</h4>
+       <h4 class="font-display font-semibold text-cream mb-4">Contact</h4>
        <div class="space-y-2 text-sm text-cream/50">
         <div id="footer-phone">
-         📞 0542 417 04 46
+         📞 0534 515 73 63
         </div>
         <div id="footer-email">
          ✉️ info@suffecatering.com
@@ -680,23 +689,23 @@ input:focus, textarea:focus, select:focus {
       </div>
      </div>
      <div class="border-t border-cream/10 pt-6 text-center text-xs text-cream/30">
-      © 2026 <span id="footer-copy-name">Suffe Catering</span>. Tüm hakları saklıdır.
+      © 2026 <span id="footer-copy-name">Suffe Catering</span>. All rights reserved.
      </div>
     </div>
    </footer>
-  </div><!-- end app-wrapper --> <!-- FIXED WHATSAPP BUTTON --> <a id="whatsapp-fixed" href="https://wa.me/905345157363?text=Merhaba%2C%20catering%20hizmeti%20hakk%C4%B1nda%20bilgi%20almak%20istiyorum." target="_blank" rel="noopener noreferrer" class="whatsapp-btn fixed bottom-5 right-5 z-50 bg-green-500 text-white w-14 h-14 rounded-full flex items-center justify-center shadow-lg hover:bg-green-600 transition"> <i data-lucide="message-circle" class="w-6 h-6"></i> </a> <!-- TOAST -->
+  </div><!-- end app-wrapper --> <!-- FIXED WHATSAPP BUTTON --> <a id="whatsapp-fixed" href="https://wa.me/905345157363?text=Hello%2C%20catering%20service%20Right%C4%B1nda%20bilgi%20get%20 I Want." target="_blank" rel="noopener noreferrer" class="whatsapp-btn fixed bottom-5 right-5 z-50 bg-green-500 text-white w-14 h-14 rounded-full flex items-center justify-center shadow-lg hover:bg-green-600 transition"> <i data-lucide="message-circle" class="w-6 h-6"></i> </a> <!-- TOAST -->
   <div class="toast-msg" id="toast"></div><!-- REVIEW MODAL -->
   <div id="review-modal" class="hidden fixed inset-0 bg-black/30 z-40 flex items-center justify-center p-4">
    <div class="bg-white rounded-2xl shadow-lg p-6 w-full max-w-md max-h-96 overflow-y-auto">
-    <h3 class="font-display font-bold text-xl text-bark mb-4">Yorum Ekle</h3>
+    <h3 class="font-display font-bold text-xl text-bark mb-4">Add Review</h3>
     <div class="space-y-4">
-     <div><label for="review-name" class="block text-sm font-medium text-bark mb-2">Ad Soyad</label> <input type="text" id="review-name" class="w-full border border-sand rounded-xl px-4 py-2.5 text-sm bg-cream/30" placeholder="Adınız">
+     <div><label for="review-name" class="block text-sm font-medium text-bark mb-2">Full Name</label> <input type="text" id="review-name" class="w-full border border-sand rounded-xl px-4 py-2.5 text-sm bg-cream/30" placeholder="Your Name">
      </div>
-     <div><label for="review-text" class="block text-sm font-medium text-bark mb-2">Yorum</label> <textarea id="review-text" rows="3" class="w-full border border-sand rounded-xl px-4 py-2.5 text-sm bg-cream/30" placeholder="Yorumunuz..."></textarea>
+     <div><label for="review-text" class="block text-sm font-medium text-bark mb-2">Comment</label> <textarea id="review-text" rows="3" class="w-full border border-sand rounded-xl px-4 py-2.5 text-sm bg-cream/30" placeholder="Your Comment..."></textarea>
      </div>
-     <div><label for="review-rating" class="block text-sm font-medium text-bark mb-2">Puan</label> <select id="review-rating" class="w-full border border-sand rounded-xl px-4 py-2.5 text-sm bg-cream/30"> <option value="5">⭐⭐⭐⭐⭐ (5 Yıldız)</option> <option value="4">⭐⭐⭐⭐ (4 Yıldız)</option> <option value="3">⭐⭐⭐ (3 Yıldız)</option> </select>
+     <div><label for="review-rating" class="block text-sm font-medium text-bark mb-2">Puan</label> <select id="review-rating" class="w-full border border-sand rounded-xl px-4 py-2.5 text-sm bg-cream/30"> <option value="5">⭐⭐⭐⭐⭐ (5 star)</option> <option value="4">⭐⭐⭐⭐ (4 star)</option> <option value="3">⭐⭐⭐ (3 star)</option> </select>
      </div>
-     <div class="flex gap-3 pt-2"><button type="button" id="review-cancel" class="flex-1 border border-sand rounded-xl px-4 py-2.5 text-sm font-medium text-bark hover:bg-sand/20 transition">İptal</button> <button type="button" id="review-save" class="flex-1 bg-spice text-cream rounded-xl px-4 py-2.5 text-sm font-medium hover:bg-spice/90 transition">Ekle</button>
+     <div class="flex gap-3 pt-2"><button type="button" id="review-cancel" class="flex-1 border border-sand rounded-xl px-4 py-2.5 text-sm font-medium text-bark hover:bg-sand/20 transition">Cancel</button> <button type="button" id="review-save" class="flex-1 bg-spice text-cream rounded-xl px-4 py-2.5 text-sm font-medium hover:bg-spice/90 transition">Add</button>
      </div>
     </div>
    </div>
@@ -781,7 +790,7 @@ function renderGallery() {
     container.innerHTML = `
       <div class="col-span-full text-center py-8 text-bark/40">
         <div class="text-3xl mb-2">📸</div>
-        <div class="text-sm">Henüz fotoğraf eklenmedi</div>
+        <div class="text-sm">no photos have been added yet.</div>
       </div>
     `;
     return;
@@ -789,7 +798,7 @@ function renderGallery() {
   container.innerHTML = galleryItems.map(item => `
     <div class="gallery-item relative">
       <div class="gallery-inner bg-gradient-to-br from-spice/20 to-sand/40 h-40 sm:h-56 rounded-2xl overflow-hidden flex items-center justify-center">
-        <img src="${item.image_data}" alt="Galeri" class="w-full h-full object-cover">
+        <img src="${item.image_data}" lower="Galeri" class="w-full h-full object-cover">
       </div>
       <button class="delete-btn" onclick="deleteGalleryItem('${item.__backendId}')">
         <i data-lucide="trash-2" class="w-4 h-4"></i>
@@ -805,7 +814,7 @@ function renderReviews() {
     container.innerHTML = `
       <div class="col-span-full text-center py-8 text-bark/40">
         <div class="text-3xl mb-2">💬</div>
-        <div class="text-sm">Henüz yorum eklenmedi</div>
+        <div class="text-sm">no comments have been added yet.</div>
       </div>
     `;
     return;
@@ -825,7 +834,7 @@ function renderReviews() {
         </div>
         <div>
           <div class="text-sm font-semibold text-bark">${r.name}</div>
-          <div class="text-xs text-bark/50">Müşteri</div>
+          <div class="text-xs text-bark/50">customer</div>
         </div>
       </div>
     </div>
@@ -839,7 +848,7 @@ async function deleteGalleryItem(id) {
   if (!item) return;
   if (window.dataSdk) {
     const result = await window.dataSdk.delete(item);
-    if (!result.isOk) showToast('Hata: Fotoğraf silinemedi');
+    if (!result.isOk) showToast('mistake: the photo could not be deleted');
   }
 }
 
@@ -848,7 +857,7 @@ async function deleteReview(id) {
   if (!review) return;
   if (window.dataSdk) {
     const result = await window.dataSdk.delete(review);
-    if (!result.isOk) showToast('Hata: Yorum silinemedi');
+    if (!result.isOk) showToast('mistake: comment deleted');
   }
 }
 
@@ -873,8 +882,8 @@ document.getElementById('gallery-input').addEventListener('change', async (e) =>
         rating: 0,
         image_data: imageData
       });
-      if (!result.isOk) showToast('Hata: Fotoğraf yüklenemedi');
-      else showToast('Fotoğraf eklendi!');
+      if (!result.isOk) showToast('mistake:photo added');
+      else showToast('photo added!');
     }
   };
   reader.readAsDataURL(file);
@@ -896,7 +905,7 @@ document.getElementById('review-save').addEventListener('click', async () => {
   const rating = parseInt(document.getElementById('review-rating').value) || 5;
   
   if (!name || !comment) {
-    showToast('Lütfen tüm alanları doldurun');
+    showToast('Please fill in all fields');
     return;
   }
   
@@ -914,9 +923,9 @@ document.getElementById('review-save').addEventListener('click', async () => {
       document.getElementById('review-name').value = '';
       document.getElementById('review-text').value = '';
       document.getElementById('review-rating').value = '5';
-      showToast('Yorum eklendi!');
+      showToast('comment added!');
     } else {
-      showToast('Hata: Yorum eklenemedi');
+      showToast('Miatake:comment added');
     }
   }
 });
@@ -949,10 +958,10 @@ document.getElementById('calc-btn').addEventListener('click', () => {
   
   // Get price from input fields
   const priceMap = {
-    'ekonomik': 'price-ekonomik',
-    'standart': 'price-standart',
+    'economic': 'price-economic',
+    'standard': 'price-standard',
     'premium': 'price-premium',
-    'luks': 'price-luks'
+    'luxury': 'price-luxury'
   };
   
   const priceField = priceMap[menuType];
@@ -966,7 +975,7 @@ document.getElementById('calc-btn').addEventListener('click', () => {
 document.getElementById('quote-form').addEventListener('submit', e => {
   e.preventDefault();
   document.getElementById('quote-success').classList.remove('hidden');
-  showToast('Teklif talebiniz alındı!');
+  showToast('Your request for quotation has been received!');
 });
 
 // Toast
@@ -993,13 +1002,13 @@ appWrapper.addEventListener('scroll', () => {
 // Element SDK
 const defaultConfig = {
   company_name: 'Suffe Catering',
-  slogan: 'Lezzet ve Şıklığın Buluştuğu Yer',
-  hero_description: 'Düğün, davet, iftar ve kurumsal organizasyonlarınız için profesyonel catering hizmeti sunuyoruz. Taze malzemeler, özenli sunum ve zamanında teslimat garantisi.',
+  slogan:  "Where Taste Meets Elegance",
+  hero_description: 'We provide professional catering services for your weddings, invitations, iftar events, and corporate gatherings. Fresh ingredients, elegant presentation, and on-time delivery guaranteed.',
   phone_number: '0542 417 04 46',
-  whatsapp_number: '+905345157363',
+  whatsapp_number: '905345157363',
   email_address: 'info@suffecatering.com',
   address_text: 'Muğla, Marmaris, Türkiye',
-  about_text: '2025 yılından beri marmaris\'de toplu yemek ve catering hizmeti sunmaktayız. Taze ve doğal malzemelerle, hijyen standartlarına uygun olarak hazırlanan yemeklerimiz, profesyonel şeflerimiz tarafından özenle pişirilmektedir.',
+  about_text:'2025, we have been providing mass catering and food services in Marmaris. Our meals are carefully prepared by our professional chefs using fresh and natural ingredients, in full compliance with hygiene standards.',
   background_color: '#FDF6EC',
   surface_color: '#FFFFFF',
   text_color: '#2C1810',
@@ -1029,7 +1038,7 @@ function applyConfig(config) {
 
   // WhatsApp link
   const waLink = document.getElementById('whatsapp-fixed');
-  waLink.href = `https://wa.me/${c.whatsapp_number}?text=${encodeURIComponent('Merhaba, catering hizmeti hakkında bilgi almak istiyorum.')}`;
+  waLink.href = `https://wa.me/${c.whatsapp_number}?text=${encodeURIComponent('Hello, I would like to get information about your catering services.')}`;
 
   // Colors
   document.documentElement.style.setProperty('--bg', c.background_color);
