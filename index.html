@@ -3,1151 +3,1116 @@
  <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>ELARA Boutique</title>
+  <title>Suffe Catering</title>
   <script src="https://cdn.tailwindcss.com/3.4.17"></script>
   <script src="https://cdn.jsdelivr.net/npm/lucide@0.263.0/dist/umd/lucide.min.js"></script>
   <script src="/_sdk/element_sdk.js"></script>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400;1,500&amp;family=Jost:wght@300;400;500;600&amp;display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;800&amp;family=DM+Sans:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet">
+  <script>
+tailwind.config = {
+  theme: {
+    extend: {
+      colors: {
+        bark: '#2C1810',
+        cream: '#FDF6EC',
+        spice: '#C4713B',
+        olive: '#5B7553',
+        sand: '#E8D5B7'
+      }
+    }
+  }
+}
+</script>
   <style>
-html,body{margin:0;padding:0;height:100%;width:100%}
-*{box-sizing:border-box}
-body{font-family:'Jost',sans-serif;color:#f5f5f5;background:#0f0f0f}
-.font-display{font-family:'Cormorant Garamond',serif}
-.hero-bg{background:linear-gradient(135deg,#1a1a2e 0%,#16213e 40%,#0f3460 100%);position:relative;overflow:hidden}
-.hero-bg::before{content:'';position:absolute;top:-50%;right:-30%;width:80%;height:200%;background:radial-gradient(ellipse,rgba(0,217,255,0.15),transparent 70%);pointer-events:none}
-.hero-bg::after{content:'';position:absolute;bottom:0;left:0;width:100%;height:40%;background:linear-gradient(to top,rgba(15,15,15,0.6),transparent);pointer-events:none}
-.product-card{transition:transform .4s cubic-bezier(.25,.46,.45,.94),box-shadow .4s ease}
-.product-card:hover{transform:translateY(-8px);box-shadow:0 20px 60px rgba(0,0,0,.08)}
-.btn-primary{background:#00d9ff;color:#000;transition:all .3s ease}
-.btn-primary:hover{background:#00b8d4;transform:translateY(-1px);box-shadow:0 4px 20px rgba(0,217,255,.4)}
-.btn-outline{border:1.5px solid #00d9ff;color:#00d9ff;transition:all .3s ease}
-.btn-outline:hover{background:#00d9ff;color:#000}
-.btn-whatsapp{background:#25D366;color:#fff;transition:all .3s ease}
-.btn-whatsapp:hover{background:#1ebe57;transform:translateY(-1px);box-shadow:0 4px 20px rgba(37,211,102,.3)}
-.nav-link{position:relative;color:#a0a0a0;transition:color .3s}
-.nav-link::after{content:'';position:absolute;bottom:-2px;left:0;width:0;height:1.5px;background:#00d9ff;transition:width .3s}
-.nav-link:hover,.nav-link.active{color:#00d9ff}
-.nav-link:hover::after,.nav-link.active::after{width:100%}
-.fade-in{opacity:0;transform:translateY(30px);transition:opacity .7s ease,transform .7s ease}
-.fade-in.visible{opacity:1;transform:translateY(0)}
-.size-btn{border:1.5px solid #2a4a6a;padding:8px 16px;border-radius:4px;cursor:pointer;transition:all .2s}
-.size-btn:hover,.size-btn.selected{background:#00d9ff;color:#000;border-color:#00d9ff}
-.color-swatch{width:28px;height:28px;border-radius:50%;cursor:pointer;border:2px solid transparent;transition:all .2s}
-.color-swatch:hover,.color-swatch.selected{border-color:#00d9ff;transform:scale(1.15)}
-.review-card{background:#1a1a1a;border-radius:12px;padding:28px;box-shadow:0 2px 20px rgba(0,0,0,.5);border:1px solid #2a2a2a}
-.campaign-banner{background:linear-gradient(135deg,#00d9ff,#0099cc,#006b99);color:#000;position:relative;overflow:hidden}
-.campaign-banner::before{content:'';position:absolute;top:-50%;right:-20%;width:60%;height:200%;background:radial-gradient(ellipse,rgba(255,255,255,.1),transparent 60%);pointer-events:none}
-.modal-overlay{position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,.5);z-index:100;display:none;align-items:center;justify-content:center}
-.modal-overlay.open{display:flex}
-.toast{position:fixed;bottom:24px;right:24px;background:#2c2c2c;color:#fff;padding:14px 24px;border-radius:8px;z-index:200;transform:translateY(100px);opacity:0;transition:all .4s ease;font-size:14px}
-.toast.show{transform:translateY(0);opacity:1}
-.mannequin-svg{filter:drop-shadow(0 10px 30px rgba(0,0,0,.1))}
-@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-10px)}}
-.float-anim{animation:float 4s ease-in-out infinite}
-.hamburger-menu{display:none}
-@media(max-width:768px){.hamburger-menu{display:block}.nav-links{display:none}.nav-links.open{display:flex;flex-direction:column;position:absolute;top:100%;left:0;width:100%;background:#faf8f5;padding:20px;box-shadow:0 10px 30px rgba(0,0,0,.1);z-index:50}#admin-panel{display:none}}
-.scroll-top{position:fixed;bottom:24px;left:24px;width:44px;height:44px;border-radius:50%;background:#8b7355;color:#fff;display:flex;align-items:center;justify-content:center;cursor:pointer;opacity:0;transition:all .3s;z-index:90;border:none}
-.scroll-top.show{opacity:1}
-.search-bar{position:relative;width:100%;max-width:400px}
-.search-results{position:absolute;top:100%;left:0;right:0;background:#fff;border:1px solid #d4c5b3;border-radius:8px;max-height:300px;overflow-y:auto;z-index:40;margin-top:4px}
-.search-result-item{padding:12px 16px;cursor:pointer;border-bottom:1px solid #f0ebe4;transition:background .2s}
-.search-result-item:hover{background:#f9f7f4}
-.search-result-item:last-child{border-bottom:none}
-.favorite-btn{transition:all .2s;cursor:pointer}
-.favorite-btn.favorited{color:#d74b78}
-.view-count{font-size:11px;color:#999}
-.coupon-modal{position:fixed;top:50%;left:50%;transform:translate(-50%,-50%);background:#fff;padding:32px;border-radius:12px;z-index:150;box-shadow:0 20px 60px rgba(0,0,0,.2);max-width:400px;width:90%}
-.coupon-modal.hidden{display:none}
-.star-rating{display:flex;gap:4px;cursor:pointer}
-.star-rating i{color:#d4c5b3;transition:color .2s}
-.star-rating i:hover,
-.star-rating i.filled{color:#8b7355}
+html, body { height: 100%; margin: 0; }
+* { box-sizing: border-box; }
+.app-wrapper { height: 100%; overflow-y: auto; overflow-x: hidden; scroll-behavior: smooth; }
+.font-display { font-family: 'Playfair Display', Georgia, serif; }
+.font-body { font-family: 'DM Sans', sans-serif; }
+
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
+}
+@keyframes pulse-glow {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(196,113,59,0.4); }
+  50% { box-shadow: 0 0 0 12px rgba(196,113,59,0); }
+}
+.anim-up { animation: fadeInUp 0.7s ease both; }
+.anim-up-d1 { animation: fadeInUp 0.7s 0.1s ease both; }
+.anim-up-d2 { animation: fadeInUp 0.7s 0.2s ease both; }
+.anim-up-d3 { animation: fadeInUp 0.7s 0.3s ease both; }
+.anim-up-d4 { animation: fadeInUp 0.7s 0.4s ease both; }
+.anim-float { animation: float 3s ease-in-out infinite; }
+.whatsapp-btn { animation: pulse-glow 2s infinite; }
+
+.menu-card:hover { transform: translateY(-4px); }
+.menu-card { transition: transform 0.3s ease, box-shadow 0.3s ease; }
+
+.nav-link { position: relative; }
+.nav-link::after {
+  content: ''; position: absolute; bottom: -2px; left: 0; width: 0;
+  height: 2px; background: #C4713B; transition: width 0.3s;
+}
+.nav-link:hover::after { width: 100%; }
+
+.hero-pattern {
+  background-image: radial-gradient(circle at 20% 50%, rgba(196,113,59,0.08) 0%, transparent 50%),
+    radial-gradient(circle at 80% 20%, rgba(91,117,83,0.06) 0%, transparent 50%),
+    radial-gradient(circle at 50% 80%, rgba(232,213,183,0.1) 0%, transparent 50%);
+}
+
+.section-divider {
+  background: linear-gradient(90deg, transparent, #C4713B33, transparent);
+  height: 1px;
+}
+
+.gallery-item { overflow: hidden; border-radius: 12px; position: relative; }S
+.gallery-item .gallery-inner { transition: transform 0.5s ease; width: 100%; height: 100%; }
+.gallery-item:hover .gallery-inner { transform: scale(1.05); }
+.gallery-item .delete-btn { position: absolute; top: 8px; right: 8px; background: rgba(196,113,59,0.9); color: white; width: 36px; height: 36px; border-radius: 50%; display: flex; align-items: center; justify-content: center; opacity: 1; transition: all 0.3s; cursor: pointer; z-index: 10; border: none; hover:bg-spice; font-size: 16px; }
+.gallery-item .delete-btn:hover { background: rgba(196,113,59,1); transform: scale(1.1); }
+
+input:focus, textarea:focus, select:focus {
+  outline: none; border-color: #C4713B; box-shadow: 0 0 0 3px rgba(196,113,59,0.15);
+}
+
+.toast-msg {
+  position: fixed; bottom: 100px; left: 50%; transform: translateX(-50%);
+  background: #2C1810; color: #FDF6EC; padding: 12px 24px; border-radius: 8px;
+  z-index: 1000; opacity: 0; transition: opacity 0.3s; pointer-events: none;
+}
+.toast-msg.show { opacity: 1; }
+
+.mobile-menu {
+  transform: translateX(100%); transition: transform 0.3s ease;
+}
+.mobile-menu.open { transform: translateX(0); }
+
+.calc-result {
+  background: linear-gradient(135deg, #C4713B11, #5B755311);
+}
+
+.review-card { position: relative; }
+.review-card .delete-review-btn { position: absolute; top: 8px; right: 8px; background: rgba(196,113,59,0.9); color: white; width: 36px; height: 36px; border-radius: 50%; display: flex; align-items: center; justify-content: center; opacity: 1; transition: all 0.3s; cursor: pointer; border: none; }
+.review-card .delete-review-btn:hover { background: rgba(196,113,59,1); transform: scale(1.1); }
 </style>
-  <style>body { box-sizing: border-box; }</style>
+  <style>body { box-sizing: border-box; 
+  }.logo-img
+ {
+  height: 45px;
+  width: auto;
+}
+
+@media (max-width: 768px) {
+  .logo-img {
+    height: 30px;
+  }
+}</style>
   <script src="/_sdk/data_sdk.js" type="text/javascript"></script>
  </head>
- <body class="h-full">
-  <div id="app" class="w-full h-full overflow-auto flex" style="background:#faf8f5"><!-- Main Content -->
-   <div id="main-content" class="flex-1 overflow-auto"><!-- Toast -->
-    <div id="toast" class="toast"></div><!-- Navigation -->
-    <nav id="navbar" class="sticky top-0 z-50 bg-opacity-95" style="background:#1a1a1a;backdrop-filter:blur(10px);border-bottom:1px solid rgba(0,217,255,.1)">
-     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="flex items-center justify-between h-16 md:h-20 relative">
-       <a href="#" onclick="navigateTo('home');return false" class="font-display text-2xl md:text-3xl font-semibold tracking-wider" id="nav-brand" style="color:#00d9ff">ELARA</a>
-       <div class="nav-links hidden md:flex items-center gap-8" id="navLinks">
-        <a href="#" onclick="navigateTo('home');return false" class="nav-link active text-sm tracking-widest uppercase" data-page="home">Ana Sayfa</a> <a href="#" onclick="navigateTo('shop');return false" class="nav-link text-sm tracking-widest uppercase" data-page="shop">Mağaza</a> <a href="#" onclick="navigateTo('about');return false" class="nav-link text-sm tracking-widest uppercase" data-page="about">Hakkımızda</a> <a href="#" onclick="navigateTo('contact');return false" class="nav-link text-sm tracking-widest uppercase" data-page="contact">İletişim</a>
+ <body class="h-full bg-cream font-body text-bark">
+  <div class="app-wrapper w-full" id="app"><!-- NAVBAR -->
+   <nav class="fixed top-0 left-0 w-full z-50 bg-cream/95 backdrop-blur-sm border-b border-sand/50" id="navbar">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 flex items-center justify-between h-16 sm:h-20"><a href="#home" class="flex items-center gap-2 group">
+      <div class="flex flex-col -space-y-1"><span class="font-display font-extrabold text-sm sm:text-base leading-tight text-spice">SUFFE</span> <span class="font-display font-light text-xs sm:text-sm tracking-widest text-olive/60">CATERING</span>
+      </div>
+      <div id="navbar-logo" class="flex items-center">
+  <img src="logo.png" alt="Suffe Catering Logo" class="logo-img">
+</div>
+      
+     <div class="hidden lg:flex items-center gap-6 text-sm font-medium"><a href="#home" class="nav-link text-bark/80 hover:text-spice">Home</a> <a href="#about" class="nav-link text-bark/80 hover:text-spice">About Us</a> <a href="#services" class="nav-link text-bark/80 hover:text-spice">Services</a> <a href="#menu" class="nav-link text-bark/80 hover:text-spice"><Menu></Menu></a> <a href="#calculator" class="nav-link text-bark/80 hover:text-spice">Calculate</a> <a href="#gallery" class="nav-link text-bark/80 hover:text-spice">Gallery</a> <a href="#reviews" class="nav-link text-bark/80 hover:text-spice">Reviews</a> <a href="#contact" class="nav-link text-bark/80 hover:text-spice">Contact</a> <a href="#quote" class="bg-spice text-cream px-5 py-2.5 rounded-full text-sm font-semibold hover:bg-spice/90 transition">Get a Quote</a>
+     </div><button class="lg:hidden text-bark" id="menu-toggle" aria-label="open menu"> <i data-lucide="menu" class="w-6 h-6"></i> </button>
+    </div>
+   </nav><!-- MOBILE MENU -->
+   <div class="mobile-menu fixed top-0 right-0 w-72 h-full bg-cream z-50 shadow-2xl p-6 pt-20" id="mobile-menu"><button class="absolute top-5 right-5" id="menu-close" aria-label="menu-close "> <i data-lucide="x" class="w-6 h-6 text-bark"></i> </button>
+    <div class="flex flex-col gap-4"><a href="#home" class="mobile-nav text-bark font-medium py-2 border-b border-sand/30">Home</a> <a href="#about" class="mobile-nav text-bark font-medium py-2 border-b border-sand/30">Aboout Us</a> <a href="#services" class="mobile-nav text-bark font-medium py-2 border-b border-sand/30">Services</a> <a href="#menu" class="mobile-nav text-bark font-medium py-2 border-b border-sand/30"><Menu></Menu></a> <a href="#calculator" class="mobile-nav text-bark font-medium py-2 border-b border-sand/30">Menu Pricing Calculator</a> <a href="#gallery" class="mobile-nav text-bark font-medium py-2 border-b border-sand/30">Gallery</a> <a href="#reviews" class="mobile-nav text-bark font-medium py-2 border-b border-sand/30">Reviews</a> <a href="#contact" class="mobile-nav text-bark font-medium py-2 border-b border-sand/30">Contact</a> <a href="#quote" class="bg-spice text-cream px-5 py-3 rounded-full text-center font-semibold mt-2">Get a Quote</a></a>
+    </div>
+   </div><!-- HERO -->
+   <section id="home" class="hero-pattern pt-20 sm:pt-24 pb-16 sm:pb-24 px-4 sm:px-6">
+    <div class="max-w-7xl mx-auto flex flex-col lg:flex-row items-center gap-10 lg:gap-16">
+     <div class="flex-1 text-center lg:text-left">
+      <div class="anim-up inline-block bg-olive/10 text-olive text-xs font-semibold px-4 py-1.5 rounded-full mb-5">
+       🌿 Since 2025 in Marmaris
+      </div>
+      <h1 class="font-display font-extrabold text-4xl sm:text-5xl lg:text-6xl leading-tight text-bark anim-up-d1" id="hero-title">Suffe Catering</h1>
+      <p class="font-display text-xl sm:text-2xl text-spice mt-3 anim-up-d2" id="hero-slogan">Where Great Taste Comes Together</p>
+      <p class="text-bark/70 mt-5 max-w-lg mx-auto lg:mx-0 leading-relaxed anim-up-d3" id="hero-desc"> 
+        We provide professional catering services for your weddings, invitations, iftar events, and corporate organizations. Fresh ingredients, elegant presentation, and guaranteed on-time delivery.</p>
+      <div class="flex flex-col sm:flex-row gap-3 mt-8 justify-center lg:justify-start anim-up-d4"><a href="#menu" class="bg-spice text-cream px-7 py-3.5 rounded-full font-semibold hover:bg-spice/90 transition flex items-center justify-center gap-2"> <i data-lucide="utensils" class="w-4 h-4"></i> View menu</menu> </a> <a href="#contact" class="border-2 border-bark/20 text-bark px-7 py-3.5 rounded-full font-semibold hover:border-spice hover:text-spice transition flex items-center justify-center gap-2"> <i data-lucide="phone" class="w-4 h-4"></i> Contact Us</a>
+      </div>
+     </div
+       class="flex-1 anim-up-d2">
+      <div class="relative">
+       <div class="w-64 h-64 sm:w-96 sm:h-96 mx-auto rounded-full bg-gradient-to-br from-spice/20 via-sand/40 to-olive/20 flex items-center justify-center anim-float">
+        <svg class="w-48 sm:w-64 h-48 sm:h-64" viewbox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+         <defs>
+          <radialgradient id="plateBg" cx="50%" cy="50%" r="50%">
+           <stop offset="0%" style="stop-color:#FDF6EC;stop-opacity:1" />
+           <stop offset="100%" style="stop-color:#E8D5B7;stop-opacity:1" />
+          </radialgradient>
+          <lineargradient id="forkGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+           <stop offset="0%" style="stop-color:#C4713B;stop-opacity:1" />
+           <stop offset="100%" style="stop-color:#A0522D;stop-opacity:1" />
+          </lineargradient>
+          <lineargradient id="knifeGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+           <stop offset="0%" style="stop-color:#5B7553;stop-opacity:1" />
+           <stop offset="100%" style="stop-color:#3D4D39;stop-opacity:1" />
+          </lineargradient>
+         </defs> <!-- Plate outer ring --> <circle cx="100" cy="100" r="95" fill="url(#plateBg)" stroke="#C4713B" stroke-width="3" /> <circle cx="100" cy="100" r="88" fill="none" stroke="#C4713B" stroke-width="1.5" opacity="0.4" /> <circle cx="100" cy="100" r="80" fill="none" stroke="#C4713B" stroke-width="0.8" opacity="0.2" /> <!-- Fork - left side --> <line x1="65" y1="50" x2="65" y2="140" stroke="url(#forkGrad)" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" /> <!-- Fork prongs with curve --> <path d="M 48 65 Q 48 75 48 140" fill="none" stroke="url(#forkGrad)" stroke-width="4" stroke-linecap="round" /> <path d="M 65 60 Q 65 75 65 140" fill="none" stroke="url(#forkGrad)" stroke-width="4" stroke-linecap="round" /> <path d="M 82 65 Q 82 75 82 140" fill="none" stroke="url(#forkGrad)" stroke-width="4" stroke-linecap="round" /> <!-- Fork handle connector with elegant curve --> <path d="M 48 65 Q 65 55 82 65" fill="none" stroke="url(#forkGrad)" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round" /> <!-- Fork base --> <ellipse cx="65" cy="145" rx="20" ry="8" fill="#C4713B" opacity="0.6" /> <!-- Knife - right side with elegant curve --> <path d="M 135 45 Q 137 65 138 140" fill="none" stroke="url(#knifeGrad)" stroke-width="5.5" stroke-linecap="round" stroke-linejoin="round" /> <!-- Knife edge detail --> <path d="M 132 55 Q 135 80 134 140" fill="none" stroke="url(#knifeGrad)" stroke-width="2" opacity="0.4" stroke-linecap="round" /> <!-- Knife tip sharp point --> <polygon points="138,45 140,52 136,50" fill="#5B7553" /> <circle cx="138" cy="45" r="2.5" fill="#3D4D39" /> <!-- Knife handle --> <rect x="130" y="130" width="14" height="18" rx="3" fill="#5B7553" opacity="0.7" /> <!-- Decorative elements - Olive leaves --> <g opacity="0.85">
+          <!-- Leaf group top -->
+          <path d="M 95 35 Q 98 28 102 35 Q 99 40 95 35" fill="#5B7553" />
+          <path d="M 99 32 Q 99.8 33 99 37" stroke="#5B7553" stroke-width="1" fill="none" opacity="0.6" /> <!-- Leaf 2 -->
+          <path d="M 105 32 Q 110 26 113 33 Q 109 36 105 32" fill="#5B7553" opacity="0.75" />
+          <path d="M 108 31 Q 109 31.8 108 34" stroke="#5B7553" stroke-width="1" fill="none" opacity="0.6" /> <!-- Leaf 3 bottom left -->
+          <path d="M 88 160 Q 85 168 92 170 Q 90 164 88 160" fill="#5B7553" opacity="0.7" /> <!-- Leaf 4 bottom right -->
+          <path d="M 148 165 Q 152 170 156 165 Q 153 160 148 165" fill="#5B7553" opacity="0.7" />
+         </g> <!-- Center decorative circle --> <circle cx="100" cy="100" r="5.5" fill="#C4713B" opacity="0.5" /> <!-- Inner accent circle --> <circle cx="100" cy="100" r="2" fill="#5B7553" opacity="0.8" />
+        </svg>
        </div>
-       <div class="hidden md:block flex-1 max-w-xs ml-8">
-        <div class="relative"><input id="search-input" type="text" placeholder="Ürün ara..." class="w-full px-4 py-2 rounded-lg border text-sm" style="border-color:#2a2a2a;background:#2a2a2a;color:#f5f5f5" oninput="handleSearch()"> <i data-lucide="search" style="width:16px;height:16px;position:absolute;right:12px;top:50%;transform:translateY(-50%);color:#888;pointer-events:none"></i>
-         <div id="search-results" class="search-results hidden"></div>
+       <div class="absolute -top-4 -right-2 bg-white rounded-2xl shadow-lg p-3 anim-float" style="animation-delay: 0.5s">
+        <div class="text-2xl">
+         👨‍🍳
         </div>
+        <div class="text-xs font-semibold text-bark mt-1">
+         Professional Chefs
+        </div>
+       </div>
+       <div class="absolute -bottom-2 -left-2 bg-white rounded-2xl shadow-lg p-3 anim-float" style="animation-delay: 1s">
+        <div class="text-2xl">
+         ⭐
+        </div>
+        <div class="text-xs font-semibold text-bark mt-1">
+         500+ Event
+        </div>
+       </div>
+      </div>
+     </div>
+    </div>
+   </section><!-- POPULAR DISHES -->
+   <section class="py-14 px-4 sm:px-6 bg-white/50">
+    <div class="max-w-7xl mx-auto">
+     <h2 class="font-display font-bold text-2xl sm:text-3xl text-center mb-10">🔥 Our Most Popular</h2>
+     <div class="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6">
+      <div class="menu-card bg-white rounded-2xl p-4 sm:p-5 shadow-sm text-center cursor-default">
+       <div class="text-5xl mb-3">
+        🍖
+       </div>
+       <h3 class="font-display font-semibold text-bark">Turkish Street Food</h3>
+       <p class="text-xs text-bark/60 mt-1">Authentıc Taste</p>
+      </div>
+      <div class="menu-card bg-white rounded-2xl p-4 sm:p-5 shadow-sm text-center cursor-default">
+       <div class="text-5xl mb-3">
+        🍚
+       </div>
+       <h3 class="font-display font-semibold text-bark">Chicken with Rice</h3>
+       <p class="text-xs text-bark/60 mt-1">Everyone's Favorite</p>
+      </div>
+      <div class="menu-card bg-white rounded-2xl p-4 sm:p-5 shadow-sm text-center cursor-default">
+       <div class="text-5xl mb-3">
+        🥘
+       </div>
+       <h3 class="font-display font-semibold text-bark">Turkısh Stew</h3>
+       <p class="text-xs text-bark/60 mt-1">Oven Baked Delights</p>
+      </div>
+      <div class="menu-card bg-white rounded-2xl p-4 sm:p-5 shadow-sm text-center cursor-default">
+       <div class="text-5xl mb-3">
+        🍮
+       </div>
+       <h3 class="font-display font-semibold text-bark">Turkish Dessert</h3>
+       <p class="text-xs text-bark/60 mt-1">Sweet Delight</p>
+      </div>
+     </div>
+    </div>
+   </section>
+   <div class="section-divider"></div><!-- ABOUT -->
+   <section id="about" class="py-16 sm:py-20 px-4 sm:px-6">
+    <div class="max-w-7xl mx-auto flex flex-col lg:flex-row items-center gap-12">
+     <div class="flex-1">
+      <div class="grid grid-cols-2 gap-4">
+       <div class="bg-gradient-to-br from-spice/15 to-sand/30 rounded-2xl p-6 flex flex-col items-center justify-center text-center h-40">
+        <div class="text-4xl mb-2">
+         👨‍🍳
+        </div>
+        <div class="font-display font-bold text-2xl text-bark">
+         2+
+        </div>
+        <div class="text-xs text-bark/60">
+         Years of Experience
+        </div>
+       </div>
+       <div class="bg-gradient-to-br from-olive/15 to-sand/30 rounded-2xl p-6 flex flex-col items-center justify-center text-center h-40">
+        <div class="text-4xl mb-2">
+         🍽️
+        </div>
+        <div class="font-display font-bold text-2xl text-bark">
+         500+
+        </div>
+        <div class="text-xs text-bark/60">
+         Organization
+        </div>
+       </div>
+       <div class="bg-gradient-to-br from-sand/40 to-cream rounded-2xl p-6 flex flex-col items-center justify-center text-center h-40">
+        <div class="text-4xl mb-2">
+         😊
+        </div>
+        <div class="font-display font-bold text-2xl text-bark">
+         10K+
+        </div>
+        <div class="text-xs text-bark/60">
+         Happy Customer 
+        </div>
+       </div>
+       <div class="bg-gradient-to-br from-spice/10 to-olive/10 rounded-2xl p-6 flex flex-col items-center justify-center text-center h-40">
+        <div class="text-4xl mb-2">
+         ✅
+        </div>
+        <div class="font-display font-bold text-2xl text-bark">
+         A+
+        </div>
+        <div class="text-xs text-bark/60">
+         Hygiene Certificate
+        </div>
+       </div>
+      </div>
+     </div>
+     <div class="flex-1">
+      <div class="text-sm font-semibold text-spice uppercase tracking-wider mb-2">
+       About Us 
+      </div> 
+      <h2 class="font-display font-bold text-3xl sm:text-4xl text-bark mb-5">Authentic Taste, Modern Plating</h2>
+      <p class="text-bark/70 leading-relaxed mb-4" id="about-text">Since 2025, we have been providing mass catering and food services in Marmaris. Our meals are prepared with fresh and natural ingredients in accordance with hygiene standards and are carefully cooked by our professional chefs.</p>
+      <div class="space-y-3 mt-6">
+       <div class="flex items-center gap-3">
+        <span class="w-8 h-8 bg-olive/10 rounded-full flex items-center justify-center text-olive"><i data-lucide="check" class="w-4 h-4"></i></span><span class="text-sm">100% natural matarial</span>
        </div>
        <div class="flex items-center gap-3">
-        <button onclick="showCouponModal()" title="Kupon" class="relative"> <i data-lucide="ticket" style="width:22px;height:22px;color:#a0a0a0"></i> </button> <button onclick="navigateTo('cart');return false" class="relative" title="Sepet"> <i data-lucide="shopping-bag" style="width:22px;height:22px;color:#a0a0a0"></i> <span id="cart-count" class="absolute -top-2 -right-2 w-5 h-5 rounded-full text-xs flex items-center justify-center text-black" style="background:#00d9ff;display:none">0</span> </button> <a id="navbar-whatsapp" href="https://wa.me/905551234567" target="_blank" rel="noopener noreferrer" title="WhatsApp" class="hover:opacity-75 transition">
-         <svg width="20" height="20" viewbox="0 0 24 24" fill="#25D366">
-          <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z" /><path d="M12 0C5.373 0 0 5.373 0 12c0 2.126.553 4.12 1.52 5.855L0 24l6.335-1.652C8.07 23.395 9.983 24 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.75c-1.875 0-3.63-.51-5.13-1.395l-.36-.21-3.765.99.99-3.63-.24-.375C2.535 15.63 1.95 13.875 1.95 12 1.95 6.465 6.465 1.95 12 1.95S22.05 6.465 22.05 12 17.535 21.75 12 21.75z" />
-         </svg></a> <button class="hamburger-menu" onclick="toggleMenu()" aria-label="Menü"> <i data-lucide="menu" style="width:24px;height:24px;color:#5a5a5a"></i> </button>
+        <span class="w-8 h-8 bg-olive/10 rounded-full flex items-center justify-center text-olive"><i data-lucide="check" class="w-4 h-4"></i></span><span class="text-sm">ISO hygiene certified kitchen</span>
+       </div>
+       <div class="flex items-center gap-3">
+        <span class="w-8 h-8 bg-olive/10 rounded-full flex items-center justify-center text-olive"><i data-lucide="check" class="w-4 h-4"></i></span><span class="text-sm">On-time delivery guaranteed</span>
+       </div>
+       <div class="flex items-center gap-3">
+        <span class="w-8 h-8 bg-olive/10 rounded-full flex items-center justify-center text-olive"><i data-lucide="check" class="w-4 h-4"></i></span><span class="text-sm">Experienced chef team</span>
        </div>
       </div>
      </div>
-    </nav><!-- HOME PAGE -->
-    <div id="page-home">
-     <!-- Hero -->
-     <section class="hero-bg" style="min-height:520px">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col items-center justify-center text-center" style="min-height:520px">
-       <div class="pt-12 md:pt-0 z-10 max-w-2xl">
-        <p class="text-sm tracking-[.35em] uppercase mb-4" style="color:#00d9ff">YENİ SEZON 2025</p>
-        <h1 id="hero-slogan" class="font-display text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-light leading-tight mb-6" style="color:#f5f5f5">Şıklığın<br>
-          yeni adresi</h1>
-        <p class="text-base md:text-lg mb-10" style="color:#c0c0c0;font-weight:300">Sezonun en trend parçalarını keşfedin. Kalite ve zarafetin buluşma noktası.</p><button onclick="navigateTo('shop')" class="btn-primary px-10 py-4 rounded-sm text-sm tracking-widest uppercase font-medium">Alışverişe Başla</button>
-       </div>
-      </div>
-     </section><!-- Campaign Banner -->
-     <section class="campaign-banner py-5">
-      <div class="max-w-7xl mx-auto px-4 flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-8 text-center">
-       <div class="flex items-center gap-2"><i data-lucide="percent" style="width:18px;height:18px"></i><span class="text-sm tracking-widest uppercase font-medium">Yeni Sezon %20 İndirim</span>
-       </div><span class="hidden sm:inline opacity-40">|</span>
-       <div class="flex items-center gap-2"><i data-lucide="truck" style="width:18px;height:18px"></i><span class="text-sm tracking-widest uppercase font-medium">150₺ Üzeri Kargo Bedava</span>
-       </div><span class="hidden sm:inline opacity-40">|</span>
-       <div class="flex items-center gap-2"><i data-lucide="shield-check" style="width:18px;height:18px"></i><span class="text-sm tracking-widest uppercase font-medium">Güvenli Alışveriş</span>
-       </div>
-      </div>
-     </section><!-- Featured Products -->
-     <section class="py-16 md:py-24">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-       <div class="text-center mb-14 fade-in">
-        <p class="text-sm tracking-[.35em] uppercase mb-3" style="color:#8b7355">KOLEKSİYON</p>
-        <h2 class="font-display text-3xl md:text-4xl font-light" style="color:#2c2c2c">Öne Çıkan Ürünler</h2>
-       </div>
-       <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6" id="featured-products"></div>
-      </div>
-     </section><!-- Reviews -->
-     <section class="py-16 md:py-24" style="background:#f0ebe4">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-       <div class="text-center mb-14 fade-in">
-        <p class="text-sm tracking-[.35em] uppercase mb-3" style="color:#8b7355">MUTLU MÜŞTERİLER</p>
-        <h2 class="font-display text-3xl md:text-4xl font-light">Müşteri Yorumları</h2>
-       </div>
-       <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-        <div class="review-card fade-in">
-         <div class="flex gap-1 mb-4">
-          ${'★'.repeat(5).split('').map(()=&gt;'<span style="color:#8b7355;font-size:16px">★</span>').join('')}
-         </div>
-         <p class="mb-5" style="color:#5a5a5a;font-weight:300;line-height:1.7">"Ürün çok kaliteli, çok memnun kaldım. Kumaşı harika, tam beden oldu. Kesinlikle tekrar alışveriş yapacağım."</p>
-         <div class="flex items-center gap-3">
-          <div class="w-10 h-10 rounded-full flex items-center justify-center text-white text-sm font-medium" style="background:#c4ab8e">
-           A
-          </div>
-          <div>
-           <p class="font-medium text-sm">Ayşe K.</p>
-           <p class="text-xs" style="color:#999">İstanbul</p>
-          </div>
-         </div>
-        </div>
-        <div class="review-card fade-in">
-         <div class="flex gap-1 mb-4"><span style="color:#8b7355;font-size:16px">★</span><span style="color:#8b7355;font-size:16px">★</span><span style="color:#8b7355;font-size:16px">★</span><span style="color:#8b7355;font-size:16px">★</span><span style="color:#8b7355;font-size:16px">★</span>
-         </div>
-         <p class="mb-5" style="color:#5a5a5a;font-weight:300;line-height:1.7">"Kargo çok hızlı geldi, paketleme de çok özenli. Elbise fotoğraftakinden bile güzel çıktı!"</p>
-         <div class="flex items-center gap-3">
-          <div class="w-10 h-10 rounded-full flex items-center justify-center text-white text-sm font-medium" style="background:#8b7355">
-           Z
-          </div>
-          <div>
-           <p class="font-medium text-sm">Zeynep M.</p>
-           <p class="text-xs" style="color:#999">Ankara</p>
-          </div>
-         </div>
-        </div>
-        <div class="review-card fade-in">
-         <div class="flex gap-1 mb-4"><span style="color:#8b7355;font-size:16px">★</span><span style="color:#8b7355;font-size:16px">★</span><span style="color:#8b7355;font-size:16px">★</span><span style="color:#8b7355;font-size:16px">★</span><span style="color:#d4c5b3;font-size:16px">★</span>
-         </div>
-         <p class="mb-5" style="color:#5a5a5a;font-weight:300;line-height:1.7">"Butik kalitesinde ürünler, fiyatlar da çok uygun. Herkese tavsiye ederim. Müşteri hizmetleri de çok ilgili."</p>
-         <div class="flex items-center gap-3">
-          <div class="w-10 h-10 rounded-full flex items-center justify-center text-white text-sm font-medium" style="background:#d4c5b3">
-           E
-          </div>
-          <div>
-           <p class="font-medium text-sm">Elif S.</p>
-           <p class="text-xs" style="color:#999">İzmir</p>
-          </div>
-         </div>
-        </div>
-       </div>
-      </div>
-     </section>
-    </div><!-- SHOP PAGE -->
-    <div id="page-shop" style="display:none">
-     <section class="py-12 md:py-20">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-       <div class="text-center mb-12">
-        <h1 class="font-display text-3xl md:text-5xl font-light mb-3">Mağaza</h1>
-        <p style="color:#6b6b6b;font-weight:300">Tüm ürünlerimizi keşfedin</p>
-       </div>
-       <div class="flex flex-wrap gap-3 justify-center mb-10">
-        <button onclick="filterProducts('all')" class="filter-btn btn-primary px-6 py-2 rounded-sm text-xs tracking-widest uppercase" data-cat="all">Tümü</button> <button onclick="filterProducts('elbise')" class="filter-btn btn-outline px-6 py-2 rounded-sm text-xs tracking-widest uppercase" data-cat="elbise">Elbiseler</button> <button onclick="filterProducts('ust')" class="filter-btn btn-outline px-6 py-2 rounded-sm text-xs tracking-widest uppercase" data-cat="ust">Üst Giyim</button> <button onclick="filterProducts('alt')" class="filter-btn btn-outline px-6 py-2 rounded-sm text-xs tracking-widest uppercase" data-cat="alt">Alt Giyim</button> <button onclick="filterProducts('ayakkabi')" class="filter-btn btn-outline px-6 py-2 rounded-sm text-xs tracking-widest uppercase" data-cat="ayakkabi">Ayakkabı</button> <button onclick="filterProducts('aksesuar')" class="filter-btn btn-outline px-6 py-2 rounded-sm text-xs tracking-widest uppercase" data-cat="aksesuar">Aksesuar</button>
-       </div>
-       <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6" id="all-products"></div>
-      </div>
-     </section>
-    </div><!-- PRODUCT DETAIL PAGE -->
-    <div id="page-detail" style="display:none">
-     <section class="py-12 md:py-20">
-      <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-       <button onclick="navigateTo('shop')" class="flex items-center gap-2 mb-8 nav-link text-sm tracking-wider uppercase"><i data-lucide="arrow-left" style="width:16px;height:16px"></i> Mağazaya Dön</button>
-       <div class="flex flex-col md:flex-row gap-10" id="detail-content"></div>
-      </div>
-     </section>
-    </div><!-- Coupon Modal -->
-    <div id="coupon-modal" class="coupon-modal hidden"><button onclick="closeCouponModal()" class="absolute top-4 right-4 text-2xl" style="background:none;border:none;cursor:pointer;color:#999">×</button>
-     <h2 class="font-display text-2xl mb-4" style="color:#8b7355">🎁 Kupon Kodları</h2>
-     <p class="text-sm mb-6" style="color:#6b6b6b">Aşağıdaki kodlardan birini seçin ve ödeme sırasında kullanın:</p>
-     <div class="space-y-3 mb-6">
-      <div class="p-4 rounded-lg border-2" style="border-color:#d4c5b3;background:#f9f7f4;cursor:pointer" onclick="copyCoupon('ELARA20')">
-       <div class="flex items-center justify-between">
-        <div>
-         <p class="font-semibold" style="color:#2c2c2c">ELARA20</p>
-         <p class="text-xs" style="color:#999">%20 İndirim</p>
-        </div><i data-lucide="copy" style="width:18px;height:18px;color:#8b7355"></i>
-       </div>
-      </div>
-      <div class="p-4 rounded-lg border-2" style="border-color:#d4c5b3;background:#f9f7f4;cursor:pointer" onclick="copyCoupon('SEZON15')">
-       <div class="flex items-center justify-between">
-        <div>
-         <p class="font-semibold" style="color:#2c2c2c">SEZON15</p>
-         <p class="text-xs" style="color:#999">%15 İndirim</p>
-        </div><i data-lucide="copy" style="width:18px;height:18px;color:#8b7355"></i>
-       </div>
-      </div>
-      <div class="p-4 rounded-lg border-2" style="border-color:#d4c5b3;background:#f9f7f4;cursor:pointer" onclick="copyCoupon('KARGO10')">
-       <div class="flex items-center justify-between">
-        <div>
-         <p class="font-semibold" style="color:#2c2c2c">KARGO10</p>
-         <p class="text-xs" style="color:#999">%10 İndirim</p>
-        </div><i data-lucide="copy" style="width:18px;height:18px;color:#8b7355"></i>
-       </div>
-      </div>
-     </div><button onclick="closeCouponModal()" class="btn-outline w-full py-2.5 rounded-lg text-sm tracking-widest uppercase font-medium">Kapat</button>
-    </div><!-- Coupon Overlay -->
-    <div id="coupon-overlay" class="fixed inset-0 bg-black bg-opacity-50 z-140 hidden" onclick="closeCouponModal()"></div><!-- CART PAGE -->
-    <div id="page-cart" style="display:none">
-     <section class="py-12 md:py-20">
-      <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-       <div class="text-center mb-12">
-        <h1 class="font-display text-3xl md:text-5xl font-light mb-3">Sepetim</h1>
-        <p style="color:#6b6b6b;font-weight:300">Siparişinizi gözden geçirin</p>
-       </div>
-       <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
-        <div class="lg:col-span-2">
-         <div id="cart-items" class="space-y-4">
-          <p class="text-center py-12" style="color:#999">Sepetiniz boş</p>
-         </div>
-        </div>
-        <div class="bg-white rounded-xl p-8 border h-fit" style="border-color:#d4c5b3">
-         <h3 class="font-display text-xl mb-6">Sipariş Özeti</h3>
-         <div class="space-y-3 mb-6 pb-6" style="border-bottom:1px solid #d4c5b3">
-          <div class="flex justify-between text-sm">
-           <span style="color:#6b6b6b">Ara Toplam</span> <span id="subtotal">0₺</span>
-          </div>
-          <div class="flex justify-between text-sm">
-           <span style="color:#6b6b6b">Kargo</span> <span id="shipping" style="color:#25D366">Bedava</span>
-          </div>
-         </div>
-         <div class="flex justify-between text-lg font-semibold mb-6" style="color:#8b7355">
-          <span>Toplam</span> <span id="total">0₺</span>
-         </div><button onclick="navigateTo('checkout')" class="btn-primary w-full py-3 rounded-lg text-sm tracking-widest uppercase font-medium" id="checkout-btn">Ödemeye Geç</button> <button onclick="navigateTo('shop')" class="btn-outline w-full py-3 mt-3 rounded-lg text-sm tracking-widest uppercase font-medium">Alışverişe Devam Et</button>
-        </div>
-       </div>
-      </div>
-     </section>
-    </div><!-- CHECKOUT PAGE -->
-    <div id="page-checkout" style="display:none">
-     <section class="py-12 md:py-20">
-      <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-       <div class="text-center mb-12">
-        <h1 class="font-display text-3xl md:text-5xl font-light mb-3">Ödeme</h1>
-        <p style="color:#6b6b6b;font-weight:300">Siparişinizi tamamlayın</p>
-       </div>
-       <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
-        <div class="lg:col-span-2">
-         <form onsubmit="handleCheckout(event)" class="space-y-8">
-          <div class="bg-white rounded-xl p-8 border" style="border-color:#d4c5b3">
-           <h3 class="font-display text-xl mb-6">Kişisel Bilgiler</h3>
-           <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-            <div>
-             <label for="checkout-name" class="block text-sm font-medium mb-2">Ad Soyad</label> <input id="checkout-name" type="text" required class="w-full px-4 py-3 rounded-lg border text-sm" style="border-color:#d4c5b3;background:#fff" placeholder="Adınız Soyadınız">
-            </div>
-            <div>
-             <label for="checkout-email" class="block text-sm font-medium mb-2">E-posta</label> <input id="checkout-email" type="email" required class="w-full px-4 py-3 rounded-lg border text-sm" style="border-color:#d4c5b3;background:#fff" placeholder="ornek@email.com">
-            </div>
-            <div>
-             <label for="checkout-phone" class="block text-sm font-medium mb-2">Telefon</label> <input id="checkout-phone" type="tel" required class="w-full px-4 py-3 rounded-lg border text-sm" style="border-color:#d4c5b3;background:#fff" placeholder="+90 555 123 4567">
-            </div>
-           </div>
-          </div>
-          <div class="bg-white rounded-xl p-8 border" style="border-color:#d4c5b3">
-           <h3 class="font-display text-xl mb-6">Teslimat Adresi</h3>
-           <div class="space-y-4">
-            <div>
-             <label for="checkout-address" class="block text-sm font-medium mb-2">Adres</label> <textarea id="checkout-address" required class="w-full px-4 py-3 rounded-lg border text-sm" style="border-color:#d4c5b3;background:#fff;resize:vertical;height:80px" placeholder="Sokak, bina, daire vb..."></textarea>
-            </div>
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-             <div>
-              <label for="checkout-city" class="block text-sm font-medium mb-2">Şehir</label> <input id="checkout-city" type="text" required class="w-full px-4 py-3 rounded-lg border text-sm" style="border-color:#d4c5b3;background:#fff" placeholder="İstanbul">
-             </div>
-             <div>
-              <label for="checkout-zip" class="block text-sm font-medium mb-2">Posta Kodu</label> <input id="checkout-zip" type="text" required class="w-full px-4 py-3 rounded-lg border text-sm" style="border-color:#d4c5b3;background:#fff" placeholder="34000">
-             </div>
-            </div>
-           </div>
-          </div>
-          <div class="flex gap-3">
-           <button type="submit" id="checkout-whatsapp-btn" class="btn-whatsapp flex-1 py-3 rounded-lg text-sm tracking-widest uppercase font-medium flex items-center justify-center gap-2">
-            <svg width="20" height="20" viewbox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z" /><path d="M12 0C5.373 0 0 5.373 0 12c0 2.126.553 4.12 1.52 5.855L0 24l6.335-1.652C8.07 23.395 9.983 24 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.75c-1.875 0-3.63-.51-5.13-1.395l-.36-.21-3.765.99.99-3.63-.24-.375C2.535 15.63 1.95 13.875 1.95 12 1.95 6.465 6.465 1.95 12 1.95S22.05 6.465 22.05 12 17.535 21.75 12 21.75z" />
-            </svg> Siparişi Tamamla </button> <button type="button" onclick="navigateTo('cart')" class="btn-outline px-6 py-3 rounded-lg text-sm tracking-widest uppercase font-medium">Geri</button>
-          </div>
-         </form>
-        </div>
-        <div class="bg-white rounded-xl p-8 border h-fit" style="border-color:#d4c5b3">
-         <h3 class="font-display text-xl mb-6">Sipariş Özeti</h3>
-         <div id="checkout-summary" class="space-y-3 mb-6 pb-6" style="border-bottom:1px solid #d4c5b3">
-          <p class="text-sm" style="color:#999">Ürünler yüklenecek...</p>
-         </div>
-         <div class="flex justify-between text-lg font-semibold" style="color:#8b7355">
-          <span>Toplam</span> <span id="checkout-total">0₺</span>
-         </div>
-        </div>
-       </div>
-      </div>
-     </section>
     </div>
-    <div id="page-about" style="display:none;background:#f0ebe4">
-     <section class="py-12 md:py-20">
-      <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-       <div class="text-center mb-16">
-        <p class="text-sm tracking-[.35em] uppercase mb-3" style="color:#8b7355">BİZ KİMİZ</p>
-        <h1 class="font-display text-3xl md:text-5xl font-light mb-6" style="color:#2c2c2c">Hakkımızda</h1>
-        <p id="about-text" class="text-lg max-w-2xl mx-auto" style="color:#333;font-weight:300;line-height:1.8">Butiğimizde kaliteli ve şık ürünleri sizlerle buluşturuyoruz. Her parça özenle seçilir ve sizlere en iyi deneyimi sunmayı hedefleriz.</p>
-       </div>
-       <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-        <div class="text-center p-8 rounded-xl" style="background:#fff;border:1px solid #d4c5b3">
-         <div class="w-16 h-16 rounded-full mx-auto mb-5 flex items-center justify-center" style="background:#8b7355"><i data-lucide="gem" style="width:28px;height:28px;color:#fff"></i>
-         </div>
-         <h3 class="font-display text-xl mb-3" style="color:#2c2c2c">Kalite</h3>
-         <p class="text-sm" style="color:#333;font-weight:300">Her ürün titizlikle seçilir ve kalite kontrolünden geçer.</p>
-        </div>
-        <div class="text-center p-8 rounded-xl" style="background:#fff;border:1px solid #d4c5b3">
-         <div class="w-16 h-16 rounded-full mx-auto mb-5 flex items-center justify-center" style="background:#8b7355"><i data-lucide="heart" style="width:28px;height:28px;color:#fff"></i>
-         </div>
-         <h3 class="font-display text-xl mb-3" style="color:#2c2c2c">Tutku</h3>
-         <p class="text-sm" style="color:#333;font-weight:300">Modaya olan tutkumuzla her sezon yeni trendleri takip ediyoruz.</p>
-        </div>
-        <div class="text-center p-8 rounded-xl" style="background:#fff;border:1px solid #d4c5b3">
-         <div class="w-16 h-16 rounded-full mx-auto mb-5 flex items-center justify-center" style="background:#8b7355"><i data-lucide="users" style="width:28px;height:28px;color:#fff"></i>
-         </div>
-         <h3 class="font-display text-xl mb-3" style="color:#2c2c2c">Müşteri</h3>
-         <p class="text-sm" style="color:#333;font-weight:300">Müşteri memnuniyeti bizim için her şeyden önemlidir.</p>
-        </div>
-       </div>
+   </section>
+   <div class="section-divider"></div><!-- SERVICES -->
+   <section id="services" class="py-16 sm:py-20 px-4 sm:px-6 bg-white/40">
+    <div class="max-w-7xl mx-auto">
+     <div class="text-center mb-12">
+      <div class="text-sm font-semibold text-spice uppercase tracking-wider mb-2">
+       Our Services
       </div>
-     </section>
-    </div><!-- CONTACT PAGE -->
-    <div id="page-contact" style="display:none">
-     <section class="py-12 md:py-20">
-      <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-       <div class="text-center mb-16">
-        <p class="text-sm tracking-[.35em] uppercase mb-3" style="color:#8b7355">BİZE ULAŞIN</p>
-        <h1 class="font-display text-3xl md:text-5xl font-light mb-6">İletişim</h1>
+      <h2 class="font-display font-bold text-3xl sm:text-4xl text-bark">We Are With You for Every Organization</h2>
+     </div>
+     <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
+      <div class="bg-white rounded-2xl p-6 shadow-sm hover:shadow-md transition group cursor-default">
+       <div class="text-4xl mb-4 group-hover:scale-110 transition-transform">
+        💒
        </div>
-       <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
-        <div>
-         <div class="space-y-6">
-          <a id="whatsapp-link" href="https://wa.me/905551234567" target="_blank" rel="noopener noreferrer" class="btn-whatsapp flex items-center gap-4 px-6 py-4 rounded-lg text-lg font-medium">
-           <svg width="28" height="28" viewbox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z" /><path d="M12 0C5.373 0 0 5.373 0 12c0 2.126.553 4.12 1.52 5.855L0 24l6.335-1.652C8.07 23.395 9.983 24 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.75c-1.875 0-3.63-.51-5.13-1.395l-.36-.21-3.765.99.99-3.63-.24-.375C2.535 15.63 1.95 13.875 1.95 12 1.95 6.465 6.465 1.95 12 1.95S22.05 6.465 22.05 12 17.535 21.75 12 21.75z" />
-           </svg><span id="whatsapp-text">WhatsApp ile İletişim</span> </a>
-          <div class="flex items-center gap-4 p-5 rounded-lg" style="background:#f0ebe4">
-           <div class="w-12 h-12 rounded-full flex items-center justify-center" style="background:#8b7355"><i data-lucide="phone" style="width:20px;height:20px;color:#fff"></i>
-           </div>
-           <div>
-            <p class="text-xs uppercase tracking-wider mb-1" style="color:#8b7355">Telefon</p>
-            <p id="phone-display" class="font-medium">+90 555 123 4567</p>
-           </div>
-          </div><a id="instagram-link" href="https://instagram.com/elaraboutique" target="_blank" rel="noopener noreferrer" class="flex items-center gap-4 p-5 rounded-lg" style="background:#f0ebe4">
-           <div class="w-12 h-12 rounded-full flex items-center justify-center" style="background:linear-gradient(135deg,#833ab4,#fd1d1d,#fcb045)"><i data-lucide="instagram" style="width:20px;height:20px;color:#fff"></i>
-           </div>
-           <div>
-            <p class="text-xs uppercase tracking-wider mb-1" style="color:#8b7355">Instagram</p>
-            <p id="insta-display" class="font-medium">@elaraboutique</p>
-           </div></a>
-          <div class="flex items-center gap-4 p-5 rounded-lg" style="background:#f0ebe4">
-           <div class="w-12 h-12 rounded-full flex items-center justify-center" style="background:#8b7355"><i data-lucide="map-pin" style="width:20px;height:20px;color:#fff"></i>
-           </div>
-           <div>
-            <p class="text-xs uppercase tracking-wider mb-1" style="color:#8b7355">Adres</p>
-            <p id="address-display" class="font-medium">İstanbul, Türkiye</p>
-           </div>
-          </div>
-         </div>
-        </div>
-        <div>
-         <form onsubmit="handleContactForm(event)" class="space-y-5">
-          <div><label for="contact-name" class="block text-sm mb-2 font-medium">Adınız</label><input id="contact-name" type="text" required class="w-full px-4 py-3 rounded-lg border text-sm" style="border-color:#d4c5b3;background:#fff" placeholder="Adınızı giriniz">
-          </div>
-          <div><label for="contact-email" class="block text-sm mb-2 font-medium">E-posta</label><input id="contact-email" type="email" required class="w-full px-4 py-3 rounded-lg border text-sm" style="border-color:#d4c5b3;background:#fff" placeholder="ornek@email.com">
-          </div>
-          <div><label for="contact-msg" class="block text-sm mb-2 font-medium">Mesajınız</label><textarea id="contact-msg" rows="4" required class="w-full px-4 py-3 rounded-lg border text-sm" style="border-color:#d4c5b3;background:#fff;resize:vertical" placeholder="Mesajınızı yazınız..."></textarea>
-          </div><button type="submit" class="btn-primary w-full py-3 rounded-lg text-sm tracking-widest uppercase font-medium">Gönder</button>
-         </form>
-        </div>
-       </div>
+       <h3 class="font-display font-semibold text-lg text-bark">Wedding Catering</h3>
+       <p class="text-sm text-bark/60 mt-2">Menus that will make your special day unforgettable</p>
       </div>
-     </section>
-    </div><!-- Footer -->
-    <footer style="background:#2c2c2c;color:#fff" class="py-12 mt-auto">
-     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
-       <div>
-        <h3 id="footer-brand" class="font-display text-2xl mb-4" style="color:#c4ab8e">ELARA</h3>
-        <p class="text-sm" style="color:#999;line-height:1.7">Şıklığın ve kalitenin buluşma noktası. Her mevsim, her tarza uygun parçalar.</p>
+      <div class="bg-white rounded-2xl p-6 shadow-sm hover:shadow-md transition group cursor-default">
+       <div class="text-4xl mb-4 group-hover:scale-110 transition-transform">
+        🌙
        </div>
-       <div>
-        <h4 class="text-sm tracking-widest uppercase mb-4" style="color:#c4ab8e">Sayfalar</h4>
-        <div class="space-y-2">
-         <a href="#" onclick="navigateTo('home');return false" class="block text-sm hover:text-white" style="color:#999;transition:color .2s">Ana Sayfa</a> <a href="#" onclick="navigateTo('shop');return false" class="block text-sm hover:text-white" style="color:#999;transition:color .2s">Mağaza</a> <a href="#" onclick="navigateTo('about');return false" class="block text-sm hover:text-white" style="color:#999;transition:color .2s">Hakkımızda</a> <a href="#" onclick="navigateTo('contact');return false" class="block text-sm hover:text-white" style="color:#999;transition:color .2s">İletişim</a>
-        </div>
-       </div>
-       <div>
-        <h4 class="text-sm tracking-widest uppercase mb-4" style="color:#c4ab8e">İletişim</h4>
-        <div class="space-y-2">
-         <p id="footer-phone" class="text-sm" style="color:#999">+90 555 123 4567</p>
-         <p id="footer-address" class="text-sm" style="color:#999">İstanbul, Türkiye</p>
-        </div>
-       </div>
+       <h3 class="font-display font-semibold text-lg text-bark">Iftar Catering</h3>
+       <p class="text-sm text-bark/60 mt-2">Rich Iftar menus specially prepared for the month of Ramadan</p>
       </div>
-      <div class="border-t pt-6 text-center" style="border-color:rgba(255,255,255,.1)">
-       <p class="text-xs" style="color:#666">© 2025 <span id="footer-brand2">ELARA</span>. Tüm hakları saklıdır.</p>
+      <div class="bg-white rounded-2xl p-6 shadow-sm hover:shadow-md transition group cursor-default">
+       <div class="text-4xl mb-4 group-hover:scale-110 transition-transform">
+        🏢
+       </div>
+       <h3 class="font-display font-semibold text-lg text-bark">Corporate Catering</h3>
+       <p class="text-sm text-bark/60 mt-2">Daily meal service for corporate companies</p>
+      </div>
+      <div class="bg-white rounded-2xl p-6 shadow-sm hover:shadow-md transition group cursor-default">
+       <div class="text-4xl mb-4 group-hover:scale-110 transition-transform">
+        🎉
+       </div>
+       <h3 class="font-display font-semibold text-lg text-bark">Event Catering &amp; Event</h3>
+       <p class="text-sm text-bark/60 mt-2">Engagements, birthdays, and private events</p>
+      </div>
+      <div class="bg-white rounded-2xl p-6 shadow-sm hover:shadow-md transition group cursor-default">
+       <div class="text-4xl mb-4 group-hover:scale-110 transition-transform">
+        🍱
+       </div>
+       <h3 class="font-display font-semibold text-lg text-bark">Mass Catering</h3>
+       <p class="text-sm text-bark/60 mt-2">50-5000 Personalized Mass Catering Service</p>
+      </div>
+      <div class="bg-white rounded-2xl p-6 shadow-sm hover:shadow-md transition group cursor-default">
+       <div class="text-4xl mb-4 group-hover:scale-110 transition-transform">
+        🎓
+       </div>
+       <h3 class="font-display font-semibold text-lg text-bark">School Meals</h3>
+       <p class="text-sm text-bark/60 mt-2">Nutritious and healthy school menus</p>
+      </div>
+      <div class="bg-white rounded-2xl p-6 shadow-sm hover:shadow-md transition group cursor-default">
+       <div class="text-4xl mb-4 group-hover:scale-110 transition-transform">
+        🕊️
+       </div>
+       <h3 class="font-display font-semibold text-lg text-bark">Funeral Catering</h3>
+       <p class="text-sm text-bark/60 mt-2">We are by your side in difficult times</p>
+      </div>
+      <div class="bg-white rounded-2xl p-6 shadow-sm hover:shadow-md transition group cursor-default">
+       <div class="text-4xl mb-4 group-hover:scale-110 transition-transform">
+        🎂
+       </div>
+       <h3 class="font-display font-semibold text-lg text-bark">  Special Occasion</h3>
+       <p class="text-sm text-bark/60 mt-2">Birthdays and celebration events</p>
+      </div>
+      <div class="bg-white rounded-2xl p-6 shadow-sm hover:shadow-md transition group cursor-default">
+       <div class="text-4xl mb-4 group-hover:scale-110 transition-transform">
+        🪑
+       </div>
+       <h3 class="font-display font-semibold text-lg text-bark">Masa &amp;  Chair Rental</h3>
+       <p class="text-sm text-bark/60 mt-2">Professional table, chair, and furniture services</p>
       </div>
      </div>
-    </footer>
-   </div><!-- Right Panel - Product Management -->
-   <div id="admin-panel" class="w-80 border-l flex flex-col" style="border-color:#d4c5b3;background:#fff;max-height:100vh"><!-- Header -->
-    <div class="p-6 border-b" style="border-color:#d4c5b3">
-     <h2 class="font-display text-xl" style="color:#8b7355">📦 Ürün Yönetimi</h2>
-     <p class="text-xs mt-2" style="color:#999">Ürün ekle, düzenle veya sil</p>
-    </div><!-- Content -->
-    <div class="flex-1 overflow-auto p-6 space-y-4"><!-- Add Product Form -->
-     <div class="bg-blue-50 p-4 rounded-lg" style="background:#f0f9ff;border:1px solid #bfdbfe">
-      <h3 class="font-medium text-sm mb-3" style="color:#1e40af">➕ Yeni Ürün Ekle</h3>
-      <div class="space-y-3">
-       <div><label class="text-xs font-medium block mb-1">Ürün Adı</label> <input id="product-name" type="text" class="w-full px-3 py-2 rounded text-sm border" style="border-color:#d4c5b3" placeholder="Örn: İpek Elbise">
+    </div>
+   </section>
+   <div class="section-divider"></div>
+   <!-- DAILY MENU -->
+   <section class="py-14 px-4 sm:px-6 bg-gradient-to-r from-spice/5 via-cream to-olive/5">
+    <div class="max-w-3xl mx-auto text-center">
+     <div class="inline-block bg-spice/10 text-spice text-xs font-semibold px-4 py-1.5 rounded-full mb-4">
+      📅   Updated Daily
+     </div>
+     <h2 class="font-display font-bold text-3xl text-bark mb-8">🍽️ Today's Menu </h2>
+     <div class="bg-white rounded-2xl shadow-sm p-6 sm:p-8">
+      <div class="grid grid-cols-2 sm:grid-cols-3 gap-4">
+       <div class="p-3 rounded-xl bg-cream/70">
+        <div class="text-2xl mb-1">
+         🍲
+        </div>
+        <div class="text-sm font-medium">
+         Mercimek Çorbası
+        </div>
        </div>
-       <div><label class="text-xs font-medium block mb-1">Fiyat (₺)</label> <input id="product-price" type="number" class="w-full px-3 py-2 rounded text-sm border" style="border-color:#d4c5b3" placeholder="1290" min="0">
+       <div class="p-3 rounded-xl bg-cream/70">
+        <div class="text-2xl mb-1">
+         🥘
+        </div>
+        <div class="text-sm font-medium">
+         Tavuk Sote
+        </div>
        </div>
-       <div><label class="text-xs font-medium block mb-1">Kategori</label> <select id="product-category" class="w-full px-3 py-2 rounded text-sm border" style="border-color:#d4c5b3"> <option value="elbise">Elbiseler</option> <option value="ust">Üst Giyim</option> <option value="alt">Alt Giyim</option> <option value="ayakkabi">Ayakkabı</option> <option value="aksesuar">Aksesuar</option> </select>
+       <div class="p-3 rounded-xl bg-cream/70">
+        <div class="text-2xl mb-1">
+         🍚
+        </div>
+        <div class="text-sm font-medium">
+         Pirinç Pilavı
+        </div>
        </div>
-       <div><label class="text-xs font-medium block mb-1">📷 Resim URL'si</label> <input id="product-image" type="text" class="w-full px-3 py-2 rounded text-sm border" style="border-color:#d4c5b3" placeholder="https://example.com/image.jpg">
-        <p class="text-xs mt-2" style="color:#999">💡 <strong>Instagram'dan resim almak için:</strong></p>
-        <p class="text-xs" style="color:#999">1️⃣ Instagram'ı aç → Resme sağ tıkla</p>
-        <p class="text-xs" style="color:#999">2️⃣ "Resim Bağlantısını Kopyala" seç</p>
-        <p class="text-xs" style="color:#999">3️⃣ Yukarıya yapıştır ✅</p>
+       <div class="p-3 rounded-xl bg-cream/70">
+        <div class="text-2xl mb-1">
+         🥗
+        </div>
+        <div class="text-sm font-medium">
+         Mevsim Salata
+        </div>
        </div>
-       <div><label class="text-xs font-medium block mb-1">Bedeler (virgülle ayırın)</label> <input id="product-sizes" type="text" class="w-full px-3 py-2 rounded text-sm border" style="border-color:#d4c5b3" placeholder="S, M, L, XL">
+       <div class="p-3 rounded-xl bg-cream/70">
+        <div class="text-2xl mb-1">
+         🥛
+        </div>
+        <div class="text-sm font-medium">
+         Ayran
+        </div>
        </div>
-       <div><label class="text-xs font-medium block mb-1">Açıklama</label> <textarea id="product-description" class="w-full px-3 py-2 rounded text-sm border" style="border-color:#d4c5b3;resize:vertical;height:60px" placeholder="Ürün özellikleri..."></textarea>
-       </div><button onclick="addNewProduct()" class="w-full btn-primary py-2.5 rounded text-xs font-medium tracking-widest uppercase">Ürün Ekle</button>
+       <div class="p-3 rounded-xl bg-cream/70">
+        <div class="text-2xl mb-1">
+         🍮
+        </div>
+        <div class="text-sm font-medium">
+         Sütlaç
+        </div>
+       </div>
       </div>
-     </div><!-- Products List -->
-     <div id="products-list" class="space-y-3">
-      <p class="text-xs" style="color:#999">Ürünler yüklenecek...</p>
+      <div class="mt-6 text-sm text-bark/50">
+       per person: <span class="font-bold text-spice text-lg">200 ₺</span>
+      </div>
+     </div>
+    </div>
+   </section>
+   <div class="section-divider"></div>
+   <!-- MENU -->
+   <section id="menu" class="py-16 sm:py-20 px-4 sm:px-6">
+    <div class="max-w-7xl mx-auto">
+     <div class="text-center mb-10">
+      <div class="text-sm font-semibold text-spice uppercase tracking-wider mb-2">
+       Our Menu
+      </div>
+      <h2 class="font-display font-bold text-3xl sm:text-4xl text-bark"> Delicious Options</h2>
+     
+    </div><!-- Menu Tabs -->
+
+     <div class="flex flex-wrap justify-center gap-2 mb-10" id="menu-tabs"><button class="menu-tab active bg-spice text-cream px-5 py-2 rounded-full text-sm font-medium transition" data-cat="soups">🍲 Çorbalar</button> <button class="menu-tab bg-white text-bark/70 px-5 py-2 rounded-full text-sm font-medium transition hover:bg-spice/10" data-cat="mains">🥘 Ana Yemekler</button> <button class="menu-tab bg-white text-bark/70 px-5 py-2 rounded-full text-sm font-medium transition hover:bg-spice/10" data-cat="sides">🍚 Yan Yemekler</button> <button class="menu-tab bg-white text-bark/70 px-5 py-2 rounded-full text-sm font-medium transition hover:bg-spice/10" data-cat="desserts">🍰 Tatlılar</button> <button class="menu-tab bg-white text-bark/70 px-5 py-2 rounded-full text-sm font-medium transition hover:bg-spice/10" data-cat="drinks">🥤 İçecekler</button>
+     </div>
+     <div id="menu-items" class="grid sm:grid-cols-2 lg:grid-cols-3 gap-5"></div>
+    </div>
+   </section>
+   <div class="section-divider"></div>
+   <!-- CALCULATOR -->
+   <section id="calculator" class="py-16 sm:py-20 px-4 sm:px-6 bg-white/40">
+    <div class="max-w-3xl mx-auto">
+     <div class="text-center mb-10">
+      <div class="text-sm font-semibold text-spice uppercase tracking-wider mb-2">
+       Online Calculator
+      </div>
+      <h2 class="font-display font-bold text-3xl sm:text-4xl text-bark">🧮 Menu Calculator</h2>
+      <p class="text-bark/60 mt-3"> Calculate the estimated price by selecting the number of people and the menu</p>
+     </div>
+     <div class="bg-white rounded-2xl shadow-sm p-6 sm:p-8">
+      <div class="grid sm:grid-cols-2 gap-5 mb-6">
+       <div><label for="calc-org" class="block text-sm font-medium text-bark mb-2"> Type of Event</label> <select id="calc-org" class="w-full border border-sand rounded-xl px-4 py-3 text-sm bg-cream/30"> <option value="wedding">💒 Wedding</option> <option value="iftar">🌙 İftar</option> <option value="engagement">💍 Engagement</option> <option value="funeral">🕊️ Funeral</option> <option value="birthday">🎂 Birthday</option> <option value="corporate">🏢 Corporate Meal</option> </select>
+       </div>
+       <div><label for="calc-menu" class="block text-sm font-medium text-bark mb-2">Menu Selection</label> <select id="calc-menu" class="w-full border border-sand rounded-xl px-4 py-3 text-sm bg-cream/30"> <option value="ekonomik">Economy Menu</option> <option value="standart">Standard Menu</option> <option value="premium">Premium Menu</option> <option value="luks">Luxury Menu</option> </select>
+       </div>
+      </div>
+      <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 mb-6 p-4 bg-white/50 rounded-xl">
+       <div><label for="price-ekonomik" class="block text-xs font-medium text-bark mb-1">Economy (₺)</label> <input type="number" id="price-ekonomik" value="150" min="0" step="10" class="w-full border border-sand rounded-lg px-3 py-2 text-sm bg-cream/30">
+       </div>
+       <div><label for="price-standart" class="block text-xs font-medium text-bark mb-1">Standard (₺)</label> <input type="number" id="price-standart" value="200" min="0" step="10" class="w-full border border-sand rounded-lg px-3 py-2 text-sm bg-cream/30">
+       </div>
+       <div><label for="price-premium" class="block text-xs font-medium text-bark mb-1">Premium (₺)</label> <input type="number" id="price-premium" value="300" min="0" step="10" class="w-full border border-sand rounded-lg px-3 py-2 text-sm bg-cream/30">
+       </div>
+       <div><label for="price-luks" class="block text-xs font-medium text-bark mb-1">Luxury (₺)</label> <input type="number" id="price-luks" value="450" min="0" step="10" class="w-full border border-sand rounded-lg px-3 py-2 text-sm bg-cream/30">
+       </div>
+      </div>
+      <div class="mb-6"><label for="calc-people" class="block text-sm font-medium text-bark mb-2">Number of People</label>
+       <div class="flex items-center gap-3"><button class="w-10 h-10 rounded-full bg-spice/10 text-spice flex items-center justify-center font-bold text-lg hover:bg-spice/20 transition" id="calc-minus">−</button> <input type="number" id="calc-people" value="50" min="10" max="5000" class="flex-1 border border-sand rounded-xl px-4 py-3 text-center text-lg font-semibold bg-cream/30"> <button class="w-10 h-10 rounded-full bg-spice/10 text-spice flex items-center justify-center font-bold text-lg hover:bg-spice/20 transition" id="calc-plus">+</button>
+       </div>
+      </div><button class="w-full bg-spice text-cream py-3.5 rounded-xl font-semibold hover:bg-spice/90 transition" id="calc-btn">Calculate</button>
+      <div id="calc-result" class="hidden mt-6 calc-result rounded-xl p-5 text-center">
+       <div class="text-sm text-bark/60 mb-1">
+        Estimated Total Price
+       </div>
+       <div class="font-display font-bold text-3xl text-spice" id="calc-total">
+        0 ₺
+       </div>
+       <div class="text-xs text-bark/50 mt-2">
+        * Prices are estimates. Please request a quote for the exact price.
+       </div><a href="#quote" class="inline-block mt-4 bg-spice text-cream px-6 py-2.5 rounded-full text-sm font-semibold hover:bg-spice/90 transition">Teklif Al</a>
+      </div>
+     </div>
+    </div>
+   </section>
+   <div class="section-divider"></div>
+   <!-- GALLERY -->
+   <section id="gallery" class="py-16 sm:py-20 px-4 sm:px-6">
+    <div class="max-w-7xl mx-auto">
+     <div class="text-center mb-10">
+      <div class="text-sm font-semibold text-spice uppercase tracking-wider mb-2">
+       Gallery
+      </div>
+      <h2 class="font-display font-bold text-3xl sm:text-4xl text-bark">📸Our Events</h2><button id="add-gallery-btn" class="mt-4 bg-spice text-cream px-5 py-2.5 rounded-full text-sm font-semibold hover:bg-spice/90 transition inline-flex items-center gap-2"> <i data-lucide="plus" class="w-4 h-4"></i> Add Photo </button>
+     </div><input type="file" id="gallery-input" accept="image/*" class="hidden">
+     <div class="grid grid-cols-2 md:grid-cols-3 gap-4" id="gallery-container">
+     </div>
+    </div>
+   </section>
+   <div class="section-divider"></div><!-- REVIEWS -->
+   <section id="reviews" class="py-16 sm:py-20 px-4 sm:px-6 bg-white/40">
+    <div class="max-w-7xl mx-auto">
+     <div class="text-center mb-10">
+      <div class="text-sm font-semibold text-spice uppercase tracking-wider mb-2">
+      Customer Reviews 
+      </div>
+      <h2 class="font-display font-bold text-3xl sm:text-4xl text-bark">What They Say?</h2><button id="add-review-btn" class="mt-4 bg-spice text-cream px-5 py-2.5 rounded-full text-sm font-semibold hover:bg-spice/90 transition inline-flex items-center gap-2"> <i data-lucide="plus" class="w-4 h-4"></i>Add Comment</button>
+     </div>
+     <div id="reviews-container" class="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
+     </div><!-- References -->
+     <div class="mt-12 text-center">
+      <div class="text-sm font-semibold text-bark/50 mb-4">
+       Our References
+      </div>
+      <div class="flex flex-wrap justify-center gap-6 text-bark/30 text-sm font-medium"><span class="px-4 py-2 bg-white rounded-full">🏢 ABC Holding</span> <span class="px-4 py-2 bg-white rounded-full">🏫 XYZ Schools</span> <span class="px-4 py-2 bg-white rounded-full">🏥 123 Hospitals</span> <span class="px-4 py-2 bg-white rounded-full">🏭 DEF Factory</span>
+      </div>
+     </div>
+    </div>
+   </section>
+   <div class="section-divider"></div><!-- QUOTE FORM -->
+   <section id="quote" class="py-16 sm:py-20 px-4 sm:px-6">
+    <div class="max-w-3xl mx-auto">
+     <div class="text-center mb-10">
+      <div class="text-sm font-semibold text-spice uppercase tracking-wider mb-2">
+       Request a Quote
+      </div>
+      <h2 class="font-display font-bold text-3xl sm:text-4xl text-bark">📋 Request a Price Quote</h2>
+     </div>
+     <form id="quote-form" class="bg-white rounded-2xl shadow-sm p-6 sm:p-8 space-y-5">
+      <div class="grid sm:grid-cols-2 gap-5">
+       <div><label for="q-name" class="block text-sm font-medium text-bark mb-2">Full Name</label> <input type="text" id="q-name" required class="w-full border border-sand rounded-xl px-4 py-3 text-sm bg-cream/30" placeholder="Full Name">
+       </div>
+       <div><label for="q-phone" class="block text-sm font-medium text-bark mb-2">Phone</label> <input type="tel" id="q-phone" required class="w-full border border-sand rounded-xl px-4 py-3 text-sm bg-cream/30" placeholder="0534 515 73  63">
+       </div>
+      </div>
+      <div class="grid sm:grid-cols-2 gap-5">
+       <div><label for="q-people" class="block text-sm font-medium text-bark mb-2">Number of Guests</label> <input type="number" id="q-people" min="10" class="w-full border border-sand rounded-xl px-4 py-3 text-sm bg-cream/30" placeholder="50">
+       </div>
+       <div><label for="q-type" class="block text-sm font-medium text-bark mb-2">Type of Event</label> <select id="q-type" class="w-full border border-sand rounded-xl px-4 py-3 text-sm bg-cream/30"> <option>Wedding</option><option>İftar</option><option>Engagement</option><option>Funeral</option><option>Birthday</option><option>Corporate Meal</option><option>Other</option> </select>
+       </div>
+      </div>
+      <div><label for="q-date" class="block text-sm font-medium text-bark mb-2">Date</label> <input type="date" id="q-date" class="w-full border border-sand rounded-xl px-4 py-3 text-sm bg-cream/30">
+      </div>
+      <div><label for="q-note" class="block text-sm font-medium text-bark mb-2">Your Note</label> <textarea id="q-note" rows="3" class="w-full border border-sand rounded-xl px-4 py-3 text-sm bg-cream/30" placeholder="Write down your special requests."></textarea>
+      </div><button type="submit" class="w-full bg-spice text-cream py-3.5 rounded-xl font-semibold hover:bg-spice/90 transition flex items-center justify-center gap-2"> <i data-lucide="send" class="w-4 h-4"></i> Request Quote </button>
+      <div id="quote-success" class="hidden text-center text-olive font-medium py-3 bg-olive/10 rounded-xl">
+       ✅ Your request has been received! We will get back to you as soon as possible.
+      </div>
+     </form>
+    </div>
+   </section>
+   <div class="section-divider"></div><!-- CONTACT -->
+   <section id="contact" class="py-16 sm:py-20 px-4 sm:px-6 bg-white/40">
+    <div class="max-w-7xl mx-auto">
+     <div class="text-center mb-10">
+      <div class="text-sm font-semibold text-spice uppercase tracking-wider mb-2">
+      Contact
+      </div>
+      <h2 class="font-display font-bold text-3xl sm:text-4xl text-bark">Contact Us</h2>
+     </div>
+     <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-5"><a href="tel:05345157363" class="bg-white rounded-2xl p-6 text-center shadow-sm hover:shadow-md transition group cursor-pointer">
+       <div class="w-12 h-12 bg-spice/10 rounded-full flex items-center justify-center mx-auto mb-3 group-hover:bg-spice/20 transition">
+        <i data-lucide="phone" class="w-5 h-5 text-spice"></i>
+       </div>
+       <div class="text-sm font-semibold text-bark">
+        phone
+       </div>
+       <div class="text-sm text-spice mt-1 font-medium hover:underline" id="contact-phone">
+        0542 417 04 46
+       </div></a> <a href="https://wa.me/905345157363?text=hello,%20catering%20service%20about%20bilgi%20FGet%20 l Want." target="_blank" rel="noopener noreferrer" class="bg-white rounded-2xl p-6 text-center shadow-sm hover:shadow-md transition group cursor-pointer">
+       <div class="w-12 h-12 bg-green-500/10 rounded-full flex items-center justify-center mx-auto mb-3 group-hover:bg-green-500/20 transition">
+        <i data-lucide="message-circle" class="w-5 h-5 text-green-600"></i>
+       </div>
+       <div class="text-sm font-semibold text-bark">
+        WhatsApp
+       </div>
+       <div class="text-sm text-green-600 mt-1 font-medium hover:underline" id="contact-whatsapp">
+        0534 515 73 63
+       </div></a> <a href="mailto:info@suffecatering.com" class="bg-white rounded-2xl p-6 text-center shadow-sm hover:shadow-md transition group cursor-pointer">
+       <div class="w-12 h-12 bg-blue-500/10 rounded-full flex items-center justify-center mx-auto mb-3 group-hover:bg-blue-500/20 transition">
+        <i data-lucide="mail" class="w-5 h-5 text-blue-500"></i>
+       </div>
+       <div class="text-sm font-semibold text-bark">
+        E-posta
+       </div>
+       <div class="text-sm text-blue-500 mt-1 font-medium hover:underline" id="contact-email">
+        info@suffecatering.com
+       </div></a> <a href="https://maps.google.com/?q=Marmaris,+Türkiye" target="_blank" rel="noopener noreferrer" class="bg-white rounded-2xl p-6 text-center shadow-sm hover:shadow-md transition group cursor-pointer">
+       <div class="w-12 h-12 bg-red-500/10 rounded-full flex items-center justify-center mx-auto mb-3 group-hover:bg-red-500/20 transition">
+        <i data-lucide="map-pin" class="w-5 h-5 text-red-500"></i>
+       </div>
+       <div class="text-sm font-semibold text-bark">
+        Adress
+       </div>
+       <div class="text-sm text-red-500 mt-1 font-medium hover:underline" id="contact-address">
+        Muğla, Marmaris, Türkiye
+       </div></a>
+     </div><!-- Map placeholder -->
+     <div class="mt-8 bg-gradient-to-br from-sand/30 to-olive/10 rounded-2xl h-48 flex items-center justify-center">
+      <div class="text-center text-bark/40">
+       <div class="text-4xl mb-2">
+        📍
+       </div>
+       <div class="text-sm">
+       Google Map will be added here 
+       </div>
+      </div>
+     </div>
+    </div>
+   </section><!-- FOOTER -->
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+<footer class="bg-gray-100 p-4 text-center">
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+<footer class="bg-gray-100 p-6 text-center flex flex-col items-center gap-4">
+  
+  <img src="logo.png" alt="Suffe Catering Logo" class="w-32 h-auto">
+
+  <a href="https://www.instagram.com/suffecatering/" target="_blank" class="inline-block bg-pink-500 text-white p-4 rounded-full text-2xl hover:bg-pink-600 transition">
+    <i class="fab fa-instagram"></i>
+  </a>
+  <p class="text-gray-600 text-sm">© 2026 Suffe Catering</p>
+  <!-- Basit tıklanabilir buton -->
+<a href="mailto:suffecatering@gmail.com" 
+   style="background:#C4713B; color:white; padding:12px 25px; border-radius:6px; text-decoration:none; font-weight:bold;">
+   write to us
+</a>
+</footer>
+</footer>
+   <footer class="bg-bark text-cream/80 py-12 px-4 sm:px-6">
+    <div class="max-w-7xl mx-auto">
+     <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-8 mb-10">
+      <div>
+       <div class="flex items-center gap-2 mb-4">
+        <svg class="w-8 h-8" viewbox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg"><defs>
+          <lineargradient id="logoGradFooter" x1="0%" y1="0%" x2="100%" y2="100%">
+           <stop offset="0%" style="stop-color:#C4713B;stop-opacity:1" />
+           <stop offset="100%" style="stop-color:#5B7553;stop-opacity:1" />
+          </lineargradient>
+         </defs> <circle cx="50" cy="50" r="48" fill="#FDF6EC" stroke="#C4713B" stroke-width="1.5" /> <circle cx="50" cy="50" r="42" fill="none" stroke="#C4713B" stroke-width="1" opacity="0.3" /> <line x1="32" y1="28" x2="32" y2="70" stroke="#C4713B" stroke-width="2.5" stroke-linecap="round" /> <line x1="24" y1="35" x2="24" y2="68" stroke="#C4713B" stroke-width="1.8" stroke-linecap="round" /> <line x1="32" y1="33" x2="32" y2="70" stroke="#C4713B" stroke-width="1.8" stroke-linecap="round" /> <line x1="40" y1="35" x2="40" y2="68" stroke="#C4713B" stroke-width="1.8" stroke-linecap="round" /> <path d="M 24 35 Q 32 30 40 35" fill="none" stroke="#C4713B" stroke-width="2" stroke-linecap="round" /> <path d="M 68 25 Q 68.5 27 69 70" fill="none" stroke="#5B7553" stroke-width="2.5" stroke-linecap="round" /> <path d="M 66 30 Q 68 35 67 70" fill="none" stroke="#5B7553" stroke-width="1.2" opacity="0.5" stroke-linecap="round" /> <circle cx="69" cy="24" r="2.5" fill="#5B7553" /> <g opacity="0.8">
+          <path d="M 48 15 Q 50 12 52 15 Q 50 17 48 15" fill="#5B7553" opacity="0.6" />
+          <path d="M 50 13 Q 50.5 13.5 50 15" stroke="#5B7553" stroke-width="0.8" fill="none" />
+          <path d="M 52 17 Q 55 14 56 18 Q 54 19 52 17" fill="#5B7553" opacity="0.5" />
+          <path d="M 54 17 Q 54.5 17.5 54 18.5" stroke="#5B7553" stroke-width="0.8" fill="none" />
+         </g> <circle cx="50" cy="50" r="3" fill="#C4713B" opacity="0.4" />
+        </svg><span class="font-display font-bold text-xl text-cream" id="footer-logo">Suffe Catering</span>
+       </div>
+       <p class="text-sm text-cream/50 leading-relaxed">Mass catering and event services. Serving you with taste and quality since 2025.</p>
+      </div>
+      <div>
+       <h4 class="font-display font-semibold text-cream mb-4">Services</h4>
+       <ul class="space-y-2 text-sm text-cream/50">
+        <li>Wedding Catering</li>
+        <li>Iftar Catering</li>
+        <li>Corporate Catering</li>
+        <li>Mass Catering</li>
+       </ul>
+      </div>
+      <div>
+       <h4 class="font-display font-semibold text-cream mb-4">Quick Links</h4>
+       <ul class="space-y-2 text-sm">
+        <li><a href="#menu" class="text-cream/50 hover:text-spice transition">Menu</a></li>
+        <li><a href="#about" class="text-cream/50 hover:text-spice transition">About Us</a></li>
+        <li><a href="#gallery" class="text-cream/50 hover:text-spice transition">Gallery</a></li>
+        <li><a href="#quote" class="text-cream/50 hover:text-spice transition">Request a Quote</a></li>
+       </ul>
+      </div>
+      <div>
+       <h4 class="font-display font-semibold text-cream mb-4">Contact</h4>
+       <div class="space-y-2 text-sm text-cream/50">
+        <div id="footer-phone">
+         📞 0534 515 73 63
+        </div>
+        <div id="footer-email">
+         ✉️ info@suffecatering.com
+        </div>
+        <div id="footer-address">
+         📍 Muğla, Marmaris, Türkiye
+        </div>
+       </div>
+       <div class="flex gap-3 mt-4"><span class="w-9 h-9 bg-cream/10 rounded-full flex items-center justify-center hover:bg-spice/50 transition cursor-pointer"><i data-lucide="instagram" class="w-4 h-4"></i></span> <span class="w-9 h-9 bg-cream/10 rounded-full flex items-center justify-center hover:bg-spice/50 transition cursor-pointer"><i data-lucide="facebook" class="w-4 h-4"></i></span> <span class="w-9 h-9 bg-cream/10 rounded-full flex items-center justify-center hover:bg-green-600/50 transition cursor-pointer" id="footer-wa-icon"><i data-lucide="message-circle" class="w-4 h-4"></i></span>
+       </div>
+      </div>
+     </div>
+     <div class="border-t border-cream/10 pt-6 text-center text-xs text-cream/30">
+      © 2026 <span id="footer-copy-name">Suffe Catering</span>. All rights reserved.
+     </div>
+    </div>
+   </footer>
+  </div><!-- end app-wrapper --> <!-- FIXED WHATSAPP BUTTON --> <a id="whatsapp-fixed" href="https://wa.me/905345157363?text=Hello%2C%20catering%20service%20Right%C4%B1nda%20bilgi%20get%20 I Want." target="_blank" rel="noopener noreferrer" class="whatsapp-btn fixed bottom-5 right-5 z-50 bg-green-500 text-white w-14 h-14 rounded-full flex items-center justify-center shadow-lg hover:bg-green-600 transition"> <i data-lucide="message-circle" class="w-6 h-6"></i> </a> <!-- TOAST -->
+  <div class="toast-msg" id="toast"></div><!-- REVIEW MODAL -->
+  <div id="review-modal" class="hidden fixed inset-0 bg-black/30 z-40 flex items-center justify-center p-4">
+   <div class="bg-white rounded-2xl shadow-lg p-6 w-full max-w-md max-h-96 overflow-y-auto">
+    <h3 class="font-display font-bold text-xl text-bark mb-4">Add Review</h3>
+    <div class="space-y-4">
+     <div><label for="review-name" class="block text-sm font-medium text-bark mb-2">Full Name</label> <input type="text" id="review-name" class="w-full border border-sand rounded-xl px-4 py-2.5 text-sm bg-cream/30" placeholder="Your Name">
+     </div>
+     <div><label for="review-text" class="block text-sm font-medium text-bark mb-2">Comment</label> <textarea id="review-text" rows="3" class="w-full border border-sand rounded-xl px-4 py-2.5 text-sm bg-cream/30" placeholder="Your Comment..."></textarea>
+     </div>
+     <div><label for="review-rating" class="block text-sm font-medium text-bark mb-2">Puan</label> <select id="review-rating" class="w-full border border-sand rounded-xl px-4 py-2.5 text-sm bg-cream/30"> <option value="5">⭐⭐⭐⭐⭐ (5 star)</option> <option value="4">⭐⭐⭐⭐ (4 star)</option> <option value="3">⭐⭐⭐ (3 star)</option> </select>
+     </div>
+     <div class="flex gap-3 pt-2"><button type="button" id="review-cancel" class="flex-1 border border-sand rounded-xl px-4 py-2.5 text-sm font-medium text-bark hover:bg-sand/20 transition">Cancel</button> <button type="button" id="review-save" class="flex-1 bg-spice text-cream rounded-xl px-4 py-2.5 text-sm font-medium hover:bg-spice/90 transition">Add</button>
      </div>
     </div>
    </div>
-  </div><!-- Scroll to top --> <button class="scroll-top" id="scrollTop" onclick="document.getElementById('main-content').scrollTo({top:0,behavior:'smooth'})" aria-label="Yukarı çık"><i data-lucide="chevron-up" style="width:20px;height:20px"></i></button>
+  </div>
   <script>
-// Data SDK Initialize
-let allProducts = [];
-let dataLoaded = false;
+// Menu data
+const menuData = {
+  soups: [
+    { name: 'Mercimek Çorbası', emoji: '🍲', desc: 'Geleneksel kırmızı mercimek çorbası' },
+    { name: 'Ezogelin Çorbası', emoji: '🍲', desc: 'Bulgurlu ve nohutlu çorba' },
+    { name: 'Tavuk Çorbası', emoji: '🍲', desc: 'Şehriyeli sıcak tavuk çorbası' }
+  ],
+  mains: [
+    { name: 'Tavuk Pilav', emoji: '🍗', desc: 'Özel baharatlarla hazırlanan tavuk' },
+    { name: 'Etli Nohut', emoji: '🥘', desc: 'Kuşbaşı etli nohut yemeği' },
+    { name: 'Tas Kebabı', emoji: '🍖', desc: 'Geleneksel tas kebabı' },
+    { name: 'Güveç', emoji: '🥘', desc: 'Sebzeli fırın güveci' },
+    { name: 'İzmir Köfte', emoji: '🍖', desc: 'Patatesli İzmir köfte' },
+    { name: 'Karnıyarık', emoji: '🍆', desc: 'Kıymalı patlıcan' }
+  ],
+  sides: [
+    { name: 'Pirinç Pilavı', emoji: '🍚', desc: 'Tereyağlı pirinç pilavı' },
+    { name: 'Bulgur Pilavı', emoji: '🌾', desc: 'Şehriyeli bulgur pilavı' },
+    { name: 'Mevsim Salata', emoji: '🥗', desc: 'Taze mevsim salata' },
+    { name: 'Çoban Salata', emoji: '🥗', desc: 'Domates, salatalık, biber' }
+  ],
+  desserts: [
+    { name: 'Baklava', emoji: '🍯', desc: 'Fıstıklı el açması baklava' },
+    { name: 'Sütlaç', emoji: '🍮', desc: 'Fırında geleneksel sütlaç' },
+    { name: 'Revani', emoji: '🍰', desc: 'Şerbetli irmik tatlısı' },
+    { name: 'Kazandibi', emoji: '🍮', desc: 'Karamelize muhallebi' }
+  ],
+  drinks: [
+    { name: 'Ayran', emoji: '🥛', desc: 'Taze yayık ayran' },
+    { name: 'Şerbet', emoji: '🍹', desc: 'Osmanlı şerbeti' },
+    { name: 'Meşrubat', emoji: '🥤', desc: 'Çeşitli meşrubatlar' }
+  ]
+};
+
+let currentCat = 'soups';
+let galleryItems = [];
+let reviews = [];
+
+// Initialize Data SDK
+let initDone = false;
 
 const dataHandler = {
   onDataChanged(data) {
-    allProducts = data || [];
-    dataLoaded = true;
-    renderProductsList();
-    if (document.getElementById('all-products').innerHTML === '') {
-      renderProducts('all-products', allProducts);
-    }
+    galleryItems = data.filter(d => d.type === 'gallery');
+    reviews = data.filter(d => d.type === 'review');
+    renderGallery();
+    renderReviews();
   }
 };
 
-// Initialize Data SDK
-(async () => {
-  if (window.dataSdk) {
-    const initResult = await window.dataSdk.init(dataHandler);
-    if (!initResult.isOk) {
-      console.error('Data SDK init failed');
-    }
-  }
-})();
-
-// Handle image upload
-function handleImageUpload(event) {
-  const file = event.target.files[0];
-  if (!file) return;
-
-  const reader = new FileReader();
-  reader.onload = function(e) {
-    const base64 = e.target.result;
-    document.getElementById('product-image').value = base64;
-    showToast('✅ Resim yüklendi! (Base64)');
-  };
-  reader.readAsDataURL(file);
+if (window.dataSdk) {
+  window.dataSdk.init(dataHandler).then(() => {
+    initDone = true;
+  });
 }
 
-// Add new product
-async function addNewProduct() {
-  const name = document.getElementById('product-name').value.trim();
-  const price = parseFloat(document.getElementById('product-price').value);
-  const category = document.getElementById('product-category').value;
-  const image = document.getElementById('product-image').value.trim();
-  const sizes = document.getElementById('product-sizes').value.trim();
-  const description = document.getElementById('product-description').value.trim();
-
-  if (!name || !price || !category || !image || !sizes || !description) {
-    showToast('⚠️ Lütfen tüm alanları doldurunuz!');
-    return;
-  }
-
-  if (allProducts.length >= 999) {
-    showToast('❌ Maksimum 999 ürün eklenebilir!');
-    return;
-  }
-
-  const newProduct = {
-    id: Date.now().toString(),
-    name,
-    price,
-    category,
-    image,
-    sizes,
-    description
-  };
-
-  const addBtn = event.target;
-  addBtn.disabled = true;
-  addBtn.textContent = 'Ekleniyor...';
-
-  const result = await window.dataSdk.create(newProduct);
-  
-  if (result.isOk) {
-    document.getElementById('product-name').value = '';
-    document.getElementById('product-price').value = '';
-    document.getElementById('product-category').value = 'elbise';
-    document.getElementById('product-image').value = '';
-    document.getElementById('product-sizes').value = '';
-    document.getElementById('product-description').value = '';
-    showToast('✅ Ürün başarıyla eklendi!');
-  } else {
-    showToast('❌ Ürün eklenirken hata oluştu!');
-  }
-
-  addBtn.disabled = false;
-  addBtn.textContent = 'Ürün Ekle';
-}
-
-// Delete product
-async function deleteProduct(productId) {
-  const product = allProducts.find(p => p.__backendId === productId);
-  if (!product) return;
-
-  const deleteBtn = event.target;
-  deleteBtn.disabled = true;
-  deleteBtn.textContent = '⏳';
-
-  const result = await window.dataSdk.delete(product);
-  
-  if (result.isOk) {
-    showToast('🗑️ Ürün silindi!');
-  } else {
-    showToast('❌ Ürün silinemedi!');
-    deleteBtn.disabled = false;
-    deleteBtn.textContent = '🗑️';
-  }
-}
-
-// Render products list in admin panel
-function renderProductsList() {
-  const container = document.getElementById('products-list');
-  
-  if (allProducts.length === 0) {
-    container.innerHTML = '<p class="text-xs text-center py-8" style="color:#999">Henüz ürün eklenmedi</p>';
-    return;
-  }
-
-  container.innerHTML = allProducts.map(p => `
-    <div class="p-4 rounded-lg border" style="border-color:#d4c5b3;background:#f9f7f4">
-      <div class="flex gap-3">
-        <div class="w-16 h-16 rounded bg-cover bg-center flex-shrink-0" style="background-image:url('${p.image}');border:1px solid #d4c5b3"></div>
-        <div class="flex-1 min-w-0">
-          <h4 class="font-medium text-sm truncate" style="color:#2c2c2c">${p.name}</h4>
-          <p class="text-xs mb-1" style="color:#8b7355;font-weight:600">${p.price}₺</p>
-          <p class="text-xs truncate" style="color:#999">${p.sizes}</p>
-          <div class="mt-2 flex gap-2">
-            <button onclick="deleteProduct('${p.__backendId}')" class="flex-1 px-2 py-1.5 rounded text-xs bg-red-100 hover:bg-red-200 transition" style="color:#dc2626;border:1px solid #fecaca">🗑️ Sil</button>
-          </div>
+function renderMenu(cat) {
+  currentCat = cat;
+  const container = document.getElementById('menu-items');
+  const items = menuData[cat] || [];
+  container.innerHTML = items.map(item => `
+    <div class="menu-card bg-white rounded-2xl p-5 shadow-sm cursor-default">
+      <div class="flex items-start gap-4">
+        <div class="text-4xl flex-shrink-0">${item.emoji}</div>
+        <div>
+          <h3 class="font-display font-semibold text-bark">${item.name}</h3>
+          <p class="text-sm text-bark/60 mt-1">${item.desc}</p>
         </div>
       </div>
     </div>
   `).join('');
 }
 
-// Product Data
-const defaultProducts = [
-  {id:1,name:"İpek Midi Elbise",price:1290,oldPrice:1590,cat:"elbise",desc:"%100 ipek kumaş, zarif kesim",fabric:"İpek",colors:["#2c2c2c","#8b7355","#7a3b3b"],sizes:["S","M","L"],badge:"İndirim",gradient:"linear-gradient(135deg,#e8ddd1,#d4c5b3)"},
-  {id:2,name:"Oversize Blazer Ceket",price:1490,oldPrice:null,cat:"ust",desc:"Rahat kalıp, şık tasarım",fabric:"Polyester karışım",colors:["#2c2c2c","#f5ede4"],sizes:["S","M","L","XL"],badge:"Yeni",gradient:"linear-gradient(135deg,#d4c5b3,#c4ab8e)"},
-  {id:3,name:"Yüksek Bel Pantolon",price:790,oldPrice:990,cat:"alt",desc:"Yüksek bel, düz paça",fabric:"Viskon",colors:["#2c2c2c","#f5ede4","#8b7355"],sizes:["S","M","L"],badge:"İndirim",gradient:"linear-gradient(135deg,#f0ebe4,#e8ddd1)"},
-  {id:4,name:"Altın Zincir Kolye",price:390,oldPrice:null,cat:"aksesuar",desc:"Zarif altın kaplama",fabric:"Paslanmaz çelik",colors:["#c4ab8e"],sizes:["Standart"],badge:null,gradient:"linear-gradient(135deg,#c4ab8e,#8b7355)"},
-  {id:5,name:"Deri Topuklu Ayakkabı",price:1590,oldPrice:1890,cat:"ayakkabi",desc:"Konforlu ve şık tasarım",image:"https://images.unsplash.com/photo-1548062607-b231b56d3086?w=400&h=500&fit=crop",fabric:"Deri",colors:["#2c2c2c","#8b7355","#c4ab8e"],sizes:["36","37","38","39","40"],badge:"İndirim",gradient:"linear-gradient(135deg,#d4c5b3,#c4ab8e)"}
-];
-
-let cart = [];
-let currentFilter = 'all';
-let favoritedProducts = new Set();
-let productViews = {};
-
-// Render product card
-function productCard(p) {
-  // Determine if p is from database or hardcoded
-  const isFromDB = p.__backendId ? true : false;
-  const badge = !isFromDB && p.badge ? `<span class="absolute top-3 left-3 text-xs tracking-wider uppercase px-3 py-1 rounded-sm text-white" style="background:${p.badge==='İndirim'?'#7a3b3b':'#8b7355'}">${p.badge}</span>` : '';
-  const oldP = !isFromDB && p.oldPrice ? `<span class="line-through text-sm" style="color:#999">${p.oldPrice}₺</span>` : '';
-  const gradient = !isFromDB && p.gradient ? p.gradient : "linear-gradient(135deg,#e8ddd1,#d4c5b3)";
-  const productId = p.__backendId || p.id;
-  const viewCount = isFromDB ? (productViews[productId] || 0) : 0;
-  const isFavorited = isFromDB ? favoritedProducts.has(productId) : false;
-  
-  return `<div class="product-card rounded-xl overflow-hidden bg-white cursor-pointer" onclick="showDetail('${productId}',${isFromDB})">
-    <div class="relative" style="height:280px;background:${gradient};position:relative">
-      ${badge}
-      ${isFromDB ? `<button onclick="event.stopPropagation();toggleFavorite('${productId}')" class="absolute top-3 right-3 favorite-btn ${isFavorited?'favorited':''}" style="background:rgba(255,255,255,.9);border:none;width:36px;height:36px;border-radius:50%;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all .2s"><i data-lucide="heart" style="width:18px;height:18px"></i></button>` : ''}
-      <div class="absolute inset-0 flex items-center justify-center overflow-hidden">
-        ${p.image && isFromDB ? `<img src="${p.image}" alt="${p.name}" loading="lazy" style="width:100%;height:100%;object-fit:cover" onerror="this.style.background='#d4c5b3';this.style.display='none'">` : `
-        <svg width="80" height="100" viewBox="0 0 80 100" fill="none" opacity="0.3">
-          <rect x="15" y="10" width="50" height="60" rx="4" stroke="#2c2c2c" stroke-width="1.5"/>
-          <path d="M25 10 C25 0 55 0 55 10" stroke="#2c2c2c" stroke-width="1.5" fill="none"/>
-          <line x1="40" y1="30" x2="40" y2="55" stroke="#2c2c2c" stroke-width="1"/>
-          <line x1="30" y1="42" x2="50" y2="42" stroke="#2c2c2c" stroke-width="1"/>
-        </svg>
-        `}
+function renderGallery() {
+  const container = document.getElementById('gallery-container');
+  if (galleryItems.length === 0) {
+    container.innerHTML = `
+      <div class="col-span-full text-center py-8 text-bark/40">
+        <div class="text-3xl mb-2">📸</div>
+        <div class="text-sm">no photos have been added yet.</div>
       </div>
+    `;
+    return;
+  }
+  container.innerHTML = galleryItems.map(item => `
+    <div class="gallery-item relative">
+      <div class="gallery-inner bg-gradient-to-br from-spice/20 to-sand/40 h-40 sm:h-56 rounded-2xl overflow-hidden flex items-center justify-center">
+        <img src="${item.image_data}" lower="Galeri" class="w-full h-full object-cover">
+      </div>
+      <button class="delete-btn" onclick="deleteGalleryItem('${item.__backendId}')">
+        <i data-lucide="trash-2" class="w-4 h-4"></i>
+      </button>
     </div>
-    <div class="p-5">
-      <h3 class="font-display text-lg mb-1">${p.name}</h3>
-      <p class="text-xs mb-3" style="color:#999">${isFromDB ? p.description : p.desc}</p>
-      <div class="flex items-center justify-between mb-3">
+  `).join('');
+  lucide.createIcons();
+}
+
+function renderReviews() {
+  const container = document.getElementById('reviews-container');
+  if (reviews.length === 0) {
+    container.innerHTML = `
+      <div class="col-span-full text-center py-8 text-bark/40">
+        <div class="text-3xl mb-2">💬</div>
+        <div class="text-sm">no comments have been added yet.</div>
+      </div>
+    `;
+    return;
+  }
+  container.innerHTML = reviews.map(r => {
+    const stars = '⭐'.repeat(r.rating);
+    return `
+    <div class="review-card bg-white rounded-2xl p-6 shadow-sm relative">
+      <button class="delete-review-btn" onclick="deleteReview('${r.__backendId}')">
+        <i data-lucide="trash-2" class="w-4 h-4"></i>
+      </button>
+      <div class="flex gap-1 text-yellow-400 mb-3">${stars}</div>
+      <p class="text-sm text-bark/70 italic leading-relaxed">"${r.comment}"</p>
+      <div class="mt-4 flex items-center gap-3">
+        <div class="w-10 h-10 rounded-full bg-spice/10 flex items-center justify-center text-spice font-bold text-xs">
+          ${r.name.substring(0, 2).toUpperCase()}
+        </div>
         <div>
-          <div class="flex items-center gap-3 mb-2">
-            <span class="font-semibold text-lg" style="color:#8b7355">${p.price}₺</span>
-            ${oldP}
-          </div>
-          ${viewCount > 0 ? `<p class="view-count">👁️ ${viewCount} görüntüleme</p>` : ''}
+          <div class="text-sm font-semibold text-bark">${r.name}</div>
+          <div class="text-xs text-bark/50">customer</div>
         </div>
       </div>
-      <button onclick="event.stopPropagation();addToCart('${productId}',${isFromDB})" class="btn-primary w-full py-2.5 rounded-sm text-xs tracking-widest uppercase">Sepete Ekle</button>
     </div>
-  </div>`;
-}
-
-function renderProducts(container, list) {
-  document.getElementById(container).innerHTML = list.map(productCard).join('');
+  `;
+  }).join('');
   lucide.createIcons();
 }
 
-function filterProducts(cat) {
-  currentFilter = cat;
-  const allToShow = [...defaultProducts, ...allProducts];
-  const filtered = cat === 'all' ? allToShow : allToShow.filter(p => {
-    const category = p.category || p.cat;
-    return category === cat;
-  });
-  if (filtered.length === 0) {
-    document.getElementById('all-products').innerHTML = '<div class="col-span-full text-center py-12" style="color:#999">Bu kategoride ürün bulunmamaktadır</div>';
-  } else {
-    renderProducts('all-products', filtered);
+async function deleteGalleryItem(id) {
+  const item = galleryItems.find(g => g.__backendId === id);
+  if (!item) return;
+  if (window.dataSdk) {
+    const result = await window.dataSdk.delete(item);
+    if (!result.isOk) showToast('mistake: the photo could not be deleted');
   }
-  document.querySelectorAll('.filter-btn').forEach(b => {
-    if (b.dataset.cat === cat) { b.className = 'filter-btn btn-primary px-6 py-2 rounded-sm text-xs tracking-widest uppercase'; }
-    else { b.className = 'filter-btn btn-outline px-6 py-2 rounded-sm text-xs tracking-widest uppercase'; }
-  });
 }
 
-function showDetail(id, isFromDB) {
-  let p;
-  if (isFromDB) {
-    p = allProducts.find(x => x.__backendId === id);
-    if (p) {
-      productViews[id] = (productViews[id] || 0) + 1;
+async function deleteReview(id) {
+  const review = reviews.find(r => r.__backendId === id);
+  if (!review) return;
+  if (window.dataSdk) {
+    const result = await window.dataSdk.delete(review);
+    if (!result.isOk) showToast('mistake: comment deleted');
+  }
+}
+
+// Gallery upload
+document.getElementById('add-gallery-btn').addEventListener('click', () => {
+  document.getElementById('gallery-input').click();
+});
+
+document.getElementById('gallery-input').addEventListener('change', async (e) => {
+  const file = e.target.files[0];
+  if (!file) return;
+  
+  const reader = new FileReader();
+  reader.onload = async (event) => {
+    const imageData = event.target.result;
+    if (window.dataSdk && initDone) {
+      const result = await window.dataSdk.create({
+        id: Date.now().toString(),
+        type: 'gallery',
+        name: file.name,
+        comment: '',
+        rating: 0,
+        image_data: imageData
+      });
+      if (!result.isOk) showToast('mistake:photo added');
+      else showToast('photo added!');
     }
-  } else {
-    p = defaultProducts.find(x => x.id === parseInt(id));
-  }
-  
-  if (!p) return;
-  
-  const oldP = !isFromDB && p.oldPrice ? `<span class="line-through text-xl" style="color:#999">${p.oldPrice}₺</span>` : '';
-  const discount = !isFromDB && p.oldPrice ? `<span class="text-sm px-3 py-1 rounded-sm text-white" style="background:#7a3b3b">%${Math.round((1-p.price/p.oldPrice)*100)} İndirim</span>` : '';
-  const gradient = !isFromDB && p.gradient ? p.gradient : "linear-gradient(135deg,#e8ddd1,#d4c5b3)";
-  const catMap = {"elbise":"ELBİSE","ust":"ÜST GİYİM","alt":"ALT GİYİM","aksesuar":"AKSESUAR"};
-  const catLabel = isFromDB ? catMap[p.category] || "ÜRÜN" : catMap[p.cat] || "ÜRÜN";
-  const fabric = !isFromDB && p.fabric ? p.fabric : "Kaliteli Kumaş";
-  const colors = !isFromDB && p.colors ? p.colors : [];
-  const sizes = isFromDB ? p.sizes.split(',').map(s => s.trim()) : p.sizes;
-  const productId = p.__backendId || p.id;
-  const isFavorited = isFromDB ? favoritedProducts.has(productId) : false;
-  const viewCount = isFromDB ? (productViews[productId] || 0) : 0;
-  
-  document.getElementById('detail-content').innerHTML = `
-    <div class="md:w-1/2 rounded-xl overflow-hidden" style="min-height:400px;background:${gradient}">
-      <div class="w-full h-full flex items-center justify-center" style="min-height:400px">
-        ${p.image && isFromDB ? `<img src="${p.image}" alt="${p.name}" loading="lazy" style="width:100%;height:100%;object-fit:cover" onerror="this.style.background='#d4c5b3';console.error('Image failed:',this.src)">` : `
-        <svg width="120" height="160" viewBox="0 0 80 100" fill="none" opacity="0.25">
-          <rect x="15" y="10" width="50" height="60" rx="4" stroke="#2c2c2c" stroke-width="1.5"/>
-          <path d="M25 10 C25 0 55 0 55 10" stroke="#2c2c2c" stroke-width="1.5" fill="none"/>
-        </svg>
-        `}
-      </div>
-    </div>
-    <div class="md:w-1/2">
-      <p class="text-xs tracking-[.3em] uppercase mb-2" style="color:#8b7355">${catLabel}</p>
-      <div class="flex items-start justify-between mb-4">
-        <h1 class="font-display text-3xl md:text-4xl font-light">${p.name}</h1>
-        ${isFromDB ? `<button onclick="toggleFavorite('${productId}')" class="favorite-btn ${isFavorited?'favorited':''}" style="background:none;border:none;font-size:28px;cursor:pointer;margin-top:-4px"><i data-lucide="heart" style="width:28px;height:28px;margin:0"></i></button>` : ''}
-      </div>
-      ${viewCount > 0 ? `<p class="view-count mb-4">👁️ ${viewCount} kişi bu ürünü görüntüledi</p>` : ''}
-      <div class="flex items-center gap-4 mb-6">
-        <span class="font-semibold text-3xl" style="color:#8b7355">${p.price}₺</span>
-        ${oldP} ${discount}
-      </div>
-      <p class="mb-6" style="color:#6b6b6b;font-weight:300;line-height:1.7">${isFromDB ? p.description : p.desc}. Özel tasarım, yüksek kalite kumaş ile hazırlanmıştır.</p>
-      <div class="mb-5">
-        <p class="text-sm font-medium mb-2">Kumaş: <span style="color:#6b6b6b;font-weight:300">${fabric}</span></p>
-      </div>
-      ${colors.length > 0 ? `
-      <div class="mb-5">
-        <p class="text-sm font-medium mb-3">Renk</p>
-        <div class="flex gap-3">${colors.map((c,i) => `<div class="color-swatch ${i===0?'selected':''}" style="background:${c}" onclick="this.parentElement.querySelectorAll('.color-swatch').forEach(s=>s.classList.remove('selected'));this.classList.add('selected')"></div>`).join('')}</div>
-      </div>
-      ` : ''}
-      <div class="mb-8">
-        <p class="text-sm font-medium mb-3">Beden</p>
-        <div class="flex gap-2 flex-wrap">${sizes.map((s,i) => `<button class="size-btn text-sm ${i===0?'selected':''}" onclick="this.parentElement.querySelectorAll('.size-btn').forEach(b=>b.classList.remove('selected'));this.classList.add('selected')">${s}</button>`).join('')}</div>
-      </div>
-      <div class="flex gap-3">
-        <button onclick="addToCart('${productId}',${isFromDB})" class="btn-primary flex-1 py-3.5 rounded-sm text-sm tracking-widest uppercase font-medium flex items-center justify-center gap-2"><i data-lucide="shopping-bag" style="width:16px;height:16px"></i> Sepete Ekle</button>
-        <a href="https://wa.me/905551234567?text=${encodeURIComponent('Merhaba, '+p.name+' hakkında bilgi almak istiyorum.')}" target="_blank" rel="noopener noreferrer" class="btn-whatsapp px-5 py-3.5 rounded-sm flex items-center"><svg width="20" height="20" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.126.553 4.12 1.52 5.855L0 24l6.335-1.652C8.07 23.395 9.983 24 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.75c-1.875 0-3.63-.51-5.13-1.395l-.36-.21-3.765.99.99-3.63-.24-.375C2.535 15.63 1.95 13.875 1.95 12 1.95 6.465 6.465 1.95 12 1.95S22.05 6.465 22.05 12 17.535 21.75 12 21.75z"/></svg></a>
-      </div>
-    </div>`;
-  navigateTo('detail');
-  lucide.createIcons();
-}
+  };
+  reader.readAsDataURL(file);
+  e.target.value = '';
+});
 
-function addToCart(id, isFromDB) {
-  let p;
-  if (isFromDB) {
-    p = allProducts.find(x => x.__backendId === id);
-  } else {
-    p = defaultProducts.find(x => x.id === parseInt(id));
-  }
-  if (!p) return;
+// Review modal
+document.getElementById('add-review-btn').addEventListener('click', () => {
+  document.getElementById('review-modal').classList.remove('hidden');
+});
+
+document.getElementById('review-cancel').addEventListener('click', () => {
+  document.getElementById('review-modal').classList.add('hidden');
+});
+
+document.getElementById('review-save').addEventListener('click', async () => {
+  const name = document.getElementById('review-name').value.trim();
+  const comment = document.getElementById('review-text').value.trim();
+  const rating = parseInt(document.getElementById('review-rating').value) || 5;
   
-  const colors = !isFromDB && p.colors ? p.colors : [];
-  const selectedColor = document.querySelector('.color-swatch.selected');
-  const selectedSize = document.querySelector('.size-btn.selected');
-  
-  if (colors.length > 0 && !selectedColor) {
-    showToast('⚠️ Lütfen renk seçiniz!');
+  if (!name || !comment) {
+    showToast('Please fill in all fields');
     return;
   }
   
-  if (!selectedSize) {
-    showToast('⚠️ Lütfen beden seçiniz!');
-    return;
+  if (window.dataSdk && initDone) {
+    const result = await window.dataSdk.create({
+      id: Date.now().toString(),
+      type: 'review',
+      name,
+      comment,
+      rating,
+      image_data: ''
+    });
+    if (result.isOk) {
+      document.getElementById('review-modal').classList.add('hidden');
+      document.getElementById('review-name').value = '';
+      document.getElementById('review-text').value = '';
+      document.getElementById('review-rating').value = '5';
+      showToast('comment added!');
+    } else {
+      showToast('Miatake:comment added');
+    }
   }
+});
+
+// Menu tabs
+document.getElementById('menu-tabs').addEventListener('click', e => {
+  const btn = e.target.closest('.menu-tab');
+  if (!btn) return;
+  document.querySelectorAll('.menu-tab').forEach(t => { t.className = 'menu-tab bg-white text-bark/70 px-5 py-2 rounded-full text-sm font-medium transition hover:bg-spice/10'; });
+  btn.className = 'menu-tab active bg-spice text-cream px-5 py-2 rounded-full text-sm font-medium transition';
+  renderMenu(btn.dataset.cat);
+});
+
+renderMenu('soups');
+renderGallery();
+renderReviews();
+
+// Calculator
+document.getElementById('calc-minus').addEventListener('click', () => {
+  const inp = document.getElementById('calc-people');
+  inp.value = Math.max(10, parseInt(inp.value || 50) - 10);
+});
+document.getElementById('calc-plus').addEventListener('click', () => {
+  const inp = document.getElementById('calc-people');
+  inp.value = Math.min(5000, parseInt(inp.value || 50) + 10);
+});
+document.getElementById('calc-btn').addEventListener('click', () => {
+  const people = parseInt(document.getElementById('calc-people').value) || 50;
+  const menuType = document.getElementById('calc-menu').value;
   
-  const cartItem = {
-    ...p,
-    selectedColor: selectedColor ? selectedColor.style.background : null,
-    selectedSize: selectedSize.textContent
+  // Get price from input fields
+  const priceMap = {
+    'economic': 'price-economic',
+    'standard': 'price-standard',
+    'premium': 'price-premium',
+    'luxury': 'price-luxury'
   };
   
-  cart.push(cartItem);
-  const countEl = document.getElementById('cart-count');
-  countEl.style.display = 'flex';
-  countEl.textContent = cart.length;
-  showToast(`${p.name} (${cartItem.selectedSize}) sepete eklendi! 🛍️`);
-}
+  const priceField = priceMap[menuType];
+  const price = parseInt(document.getElementById(priceField).value) || 200;
+  const total = people * price;
+  document.getElementById('calc-total').textContent = total.toLocaleString('tr-TR') + ' ₺';
+  document.getElementById('calc-result').classList.remove('hidden');
+});
 
+// Quote form
+document.getElementById('quote-form').addEventListener('submit', e => {
+  e.preventDefault();
+  document.getElementById('quote-success').classList.remove('hidden');
+  showToast('Your request for quotation has been received!');
+});
+
+// Toast
 function showToast(msg) {
   const t = document.getElementById('toast');
   t.textContent = msg;
   t.classList.add('show');
-  setTimeout(() => t.classList.remove('show'), 2500);
+  setTimeout(() => t.classList.remove('show'), 3000);
 }
 
-// Navigation
-function navigateTo(page) {
-  ['home','shop','detail','about','contact','cart','checkout'].forEach(p => {
-    document.getElementById('page-'+p).style.display = p === page ? 'block' : 'none';
-  });
-  document.querySelectorAll('.nav-link').forEach(l => {
-    l.classList.toggle('active', l.dataset.page === page);
-  });
-  document.getElementById('main-content').scrollTo({top:0,behavior:'smooth'});
-  document.getElementById('navLinks').classList.remove('open');
-  if (page === 'shop') {
-    // Mix hardcoded + database products
-    const allToShow = [...defaultProducts, ...allProducts];
-    filterProducts(currentFilter);
-  }
-  if (page === 'detail') lucide.createIcons();
-  if (page === 'cart') renderCartPage();
-  if (page === 'checkout') renderCheckoutPage();
-}
+// Mobile menu
+document.getElementById('menu-toggle').addEventListener('click', () => document.getElementById('mobile-menu').classList.add('open'));
+document.getElementById('menu-close').addEventListener('click', () => document.getElementById('mobile-menu').classList.remove('open'));
+document.querySelectorAll('.mobile-nav').forEach(a => a.addEventListener('click', () => document.getElementById('mobile-menu').classList.remove('open')));
 
-function toggleMenu() {
-  document.getElementById('navLinks').classList.toggle('open');
-}
-
-function handleContactForm(e) {
-  e.preventDefault();
-  e.target.reset();
-  showToast('Mesajınız gönderildi! Teşekkürler 💌');
-}
-
-// Search functionality
-function handleSearch() {
-  const query = document.getElementById('search-input').value.toLowerCase().trim();
-  const resultsDiv = document.getElementById('search-results');
-  
-  if (query.length < 2) {
-    resultsDiv.classList.add('hidden');
-    return;
-  }
-  
-  const allToSearch = [...defaultProducts, ...allProducts];
-  const filtered = allToSearch.filter(p => 
-    (p.name && p.name.toLowerCase().includes(query)) ||
-    (p.description && p.description.toLowerCase().includes(query)) ||
-    (p.desc && p.desc.toLowerCase().includes(query))
-  ).slice(0, 8);
-  
-  if (filtered.length === 0) {
-    resultsDiv.innerHTML = '<div class="search-result-item">Ürün bulunamadı</div>';
-    resultsDiv.classList.remove('hidden');
-    return;
-  }
-  
-  resultsDiv.innerHTML = filtered.map(p => `
-    <div class="search-result-item" onclick="showDetail('${p.id}',${p.__backendId?'true':'false'})">
-      <p class="font-medium text-sm">${p.name}</p>
-      <p class="text-xs" style="color:#8b7355">${p.price || p.__backendId ? 'Database ürünü' : 'Öne çıkan ürün'}₺</p>
-    </div>
-  `).join('');
-  resultsDiv.classList.remove('hidden');
-}
-
-// Close search when clicking outside
-document.addEventListener('click', (e) => {
-  const searchBar = document.querySelector('.search-bar');
-  if (searchBar && !searchBar.contains(e.target)) {
-    document.getElementById('search-results').classList.add('hidden');
-  }
-  // Close mobile menu when clicking outside
-  const navLinks = document.getElementById('navLinks');
-  if (navLinks && !navLinks.contains(e.target) && !e.target.closest('.hamburger-menu')) {
-    navLinks.classList.remove('open');
-  }
+// Navbar scroll effect
+const appWrapper = document.querySelector('.app-wrapper');
+appWrapper.addEventListener('scroll', () => {
+  const nav = document.getElementById('navbar');
+  if (appWrapper.scrollTop > 50) nav.classList.add('shadow-sm');
+  else nav.classList.remove('shadow-sm');
 });
-
-// Favorite functions
-function toggleFavorite(productId) {
-  if (favoritedProducts.has(productId)) {
-    favoritedProducts.delete(productId);
-    showToast('❤️ Favorilerden kaldırıldı');
-  } else {
-    favoritedProducts.add(productId);
-    showToast('❤️ Favorilere eklendi!');
-  }
-  renderProducts('all-products', allProducts);
-  lucide.createIcons();
-}
-
-// Coupon modal functions
-function showCouponModal() {
-  document.getElementById('coupon-modal').classList.remove('hidden');
-  document.getElementById('coupon-overlay').classList.remove('hidden');
-  lucide.createIcons();
-}
-
-function closeCouponModal() {
-  document.getElementById('coupon-modal').classList.add('hidden');
-  document.getElementById('coupon-overlay').classList.add('hidden');
-}
-
-function copyCoupon(code) {
-  navigator.clipboard.writeText(code).then(() => {
-    showToast(`✅ "${code}" kopyalandı! Ödeme sırasında yapıştırın.`);
-    closeCouponModal();
-  });
-}
-
-// Cart functions
-function renderCartPage() {
-  if (cart.length === 0) {
-    document.getElementById('cart-items').innerHTML = '<p class="text-center py-12" style="color:#999">Sepetiniz boş</p>';
-    document.getElementById('checkout-btn').disabled = true;
-    document.getElementById('subtotal').textContent = '0₺';
-    document.getElementById('total').textContent = '0₺';
-    return;
-  }
-
-  const subtotal = cart.reduce((sum, p) => sum + p.price, 0);
-  const total = subtotal;
-
-  document.getElementById('subtotal').textContent = subtotal + '₺';
-  document.getElementById('total').textContent = total + '₺';
-  document.getElementById('checkout-btn').disabled = false;
-
-  document.getElementById('cart-items').innerHTML = cart.map((p, i) => `
-    <div class="bg-white rounded-xl p-6 border flex gap-6" style="border-color:#d4c5b3">
-      <div class="w-24 h-24 rounded-lg bg-cover bg-center flex-shrink-0" style="background-image:url('${p.image}');background-color:#d4c5b3;border:1px solid #d4c5b3"></div>
-      <div class="flex-1 flex flex-col justify-between">
-        <div>
-          <h3 class="font-display text-lg mb-1">${p.name}</h3>
-          <p class="text-sm" style="color:#999">${p.sizes || p.description}</p>
-        </div>
-        <div class="flex items-center justify-between">
-          <span class="font-semibold text-lg" style="color:#8b7355">${p.price}₺</span>
-          <button onclick="removeFromCart(${i})" class="px-3 py-2 rounded text-sm" style="background:#fee;color:#c41e3a;border:1px solid #fcc;transition:all .2s" onmouseover="this.style.background='#fdd'" onmouseout="this.style.background='#fee'">🗑️ Sil</button>
-        </div>
-      </div>
-    </div>
-  `).join('');
-}
-
-function removeFromCart(index) {
-  cart.splice(index, 1);
-  const countEl = document.getElementById('cart-count');
-  if (cart.length === 0) {
-    countEl.style.display = 'none';
-  } else {
-    countEl.textContent = cart.length;
-  }
-  renderCartPage();
-  showToast('Ürün sepetten kaldırıldı 🗑️');
-}
-
-function renderCheckoutPage() {
-  const subtotal = cart.reduce((sum, p) => sum + p.price, 0);
-  const total = subtotal;
-
-  document.getElementById('checkout-total').textContent = total + '₺';
-
-  document.getElementById('checkout-summary').innerHTML = cart.map(p => `
-    <div class="flex justify-between text-sm py-2" style="border-bottom:1px solid #f0ebe4">
-      <span>${p.name}</span>
-      <span class="font-medium">${p.price}₺</span>
-    </div>
-  `).join('') + `
-    <div class="flex justify-between text-lg font-semibold mt-4" style="color:#8b7355">
-      <span>Toplam</span>
-      <span>${total}₺</span>
-    </div>
-  `;
-}
-
-function handleCheckout(e) {
-  e.preventDefault();
-
-  const name = document.getElementById('checkout-name').value;
-  const email = document.getElementById('checkout-email').value;
-  const phone = document.getElementById('checkout-phone').value;
-  const address = document.getElementById('checkout-address').value;
-  const city = document.getElementById('checkout-city').value;
-  const zip = document.getElementById('checkout-zip').value;
-
-  const message = `Merhaba! Aşağıdaki bilgilerle sipariş vermek istiyorum:
-
-👤 Ad: ${name}
-📧 E-posta: ${email}
-📱 Telefon: ${phone}
-
-📍 Adres: ${address}, ${city} ${zip}
-
-🛍️ Ürünler:
-${cart.map(p => `• ${p.name} - ${p.price}₺`).join('\n')}
-
-💰 Toplam: ${cart.reduce((sum, p) => sum + p.price, 0)}₺`;
-
-  // Get WhatsApp number from config
-  const config = window.elementSdk?.config || defaultConfig;
-  const waNum = (config.whatsapp_number || defaultConfig.whatsapp_number).replace(/[^0-9]/g,'');
-  const url = `https://wa.me/${waNum}?text=${encodeURIComponent(message)}`;
-
-  window.open(url, '_blank');
-  
-  setTimeout(() => {
-    cart = [];
-    document.getElementById('cart-count').style.display = 'none';
-    showToast('✅ Sipariş başarıyla gönderildi! WhatsApp üzerinden onay bekleniyor 🎉');
-    navigateTo('home');
-  }, 500);
-}
-
-// Scroll observer for animations
-const mainContent = document.getElementById('main-content');
-function checkFadeIn() {
-  document.querySelectorAll('.fade-in:not(.visible)').forEach(el => {
-    const rect = el.getBoundingClientRect();
-    if (rect.top < window.innerHeight - 60) el.classList.add('visible');
-  });
-}
-mainContent.addEventListener('scroll', () => {
-  checkFadeIn();
-  const st = document.getElementById('scrollTop');
-  st.classList.toggle('show', mainContent.scrollTop > 400);
-});
-
-// Init with fade-in trigger
-renderProducts('featured-products', defaultProducts.slice(0, 4));
-renderProducts('all-products', defaultProducts);
-lucide.createIcons();
-document.querySelectorAll('.fade-in').forEach(el => el.classList.add('visible'));
-setTimeout(checkFadeIn, 200);
 
 // Element SDK
 const defaultConfig = {
-  brand_name: 'ELARA',
-  slogan: 'Şıklığın yeni adresi',
-  about_text: 'Butiğimizde kaliteli ve şık ürünleri sizlerle buluşturuyoruz. Her parça özenle seçilir ve sizlere en iyi deneyimi sunmayı hedefleriz.',
-  whatsapp_number: '+90 555 123 4567',
-  instagram_handle: '@elaraboutique',
-  phone_number: '+90 555 123 4567',
-  address: 'İstanbul, Türkiye',
-  background_color: '#ffffff',
-  surface_color: '#f5f0eb',
-  text_color: '#1a1a1a',
-  primary_action_color: '#d946a6',
-  secondary_action_color: '#ec4899',
-  font_family: 'Cormorant Garamond',
+  company_name: 'Suffe Catering',
+  slogan:  "Where Taste Meets Elegance",
+  hero_description: 'We provide professional catering services for your weddings, invitations, iftar events, and corporate gatherings. Fresh ingredients, elegant presentation, and on-time delivery guaranteed.',
+  phone_number: '0542 417 04 46',
+  whatsapp_number: '905345157363',
+  email_address: 'info@suffecatering.com',
+  address_text: 'Muğla, Marmaris, Türkiye',
+  about_text:'2025, we have been providing mass catering and food services in Marmaris. Our meals are carefully prepared by our professional chefs using fresh and natural ingredients, in full compliance with hygiene standards.',
+  background_color: '#FDF6EC',
+  surface_color: '#FFFFFF',
+  text_color: '#2C1810',
+  primary_action_color: '#C4713B',
+  secondary_action_color: '#5B7553',
+  font_family: 'Playfair Display',
   font_size: 16
 };
+
+function applyConfig(config) {
+  const c = { ...defaultConfig, ...config };
+  // Text
+  document.getElementById('nav-logo').textContent = c.company_name;
+  document.getElementById('hero-title').textContent = c.company_name;
+  document.getElementById('hero-slogan').textContent = c.slogan;
+  document.getElementById('hero-desc').textContent = c.hero_description;
+  document.getElementById('about-text').textContent = c.about_text;
+  document.getElementById('contact-phone').textContent = c.phone_number;
+  document.getElementById('contact-whatsapp').textContent = c.phone_number;
+  document.getElementById('contact-email').textContent = c.email_address;
+  document.getElementById('contact-address').textContent = c.address_text;
+  document.getElementById('footer-logo').textContent = c.company_name;
+  document.getElementById('footer-phone').textContent = '📞 ' + c.phone_number;
+  document.getElementById('footer-email').textContent = '✉️ ' + c.email_address;
+  document.getElementById('footer-address').textContent = '📍 ' + c.address_text;
+  document.getElementById('footer-copy-name').textContent = c.company_name;
+
+  // WhatsApp link
+  const waLink = document.getElementById('whatsapp-fixed');
+  waLink.href = `https://wa.me/${c.whatsapp_number}?text=${encodeURIComponent('Hello, I would like to get information about your catering services.')}`;
+
+  // Colors
+  document.documentElement.style.setProperty('--bg', c.background_color);
+  document.body.style.backgroundColor = c.background_color;
+  document.body.style.color = c.text_color;
+
+  // Font
+  const fontStack = `${c.font_family}, Georgia, serif`;
+  document.querySelectorAll('.font-display').forEach(el => el.style.fontFamily = fontStack);
+
+  // Font size
+  const base = c.font_size;
+  document.querySelectorAll('h1').forEach(el => el.style.fontSize = `${base * 2.5}px`);
+  document.querySelectorAll('h2').forEach(el => el.style.fontSize = `${base * 1.75}px`);
+  document.querySelectorAll('h3').forEach(el => el.style.fontSize = `${base * 1.1}px`);
+}
 
 if (window.elementSdk) {
   window.elementSdk.init({
     defaultConfig,
-    onConfigChange: async (config) => {
-      const brand = config.brand_name || defaultConfig.brand_name;
-      const slogan = config.slogan || defaultConfig.slogan;
-      const about = config.about_text || defaultConfig.about_text;
-      const wa = config.whatsapp_number || defaultConfig.whatsapp_number;
-      const insta = config.instagram_handle || defaultConfig.instagram_handle;
-      const phone = config.phone_number || defaultConfig.phone_number;
-      const addr = config.address || defaultConfig.address;
-      const bg = config.background_color || defaultConfig.background_color;
-      const primary = config.primary_action_color || defaultConfig.primary_action_color;
-      const font = config.font_family || defaultConfig.font_family;
-      const fontSize = config.font_size || defaultConfig.font_size;
-
-      document.getElementById('nav-brand').textContent = brand;
-      document.getElementById('footer-brand').textContent = brand;
-      document.getElementById('footer-brand2').textContent = brand;
-      document.getElementById('hero-slogan').innerHTML = slogan.replace(/\n/g,'<br>');
-      document.getElementById('about-text').textContent = about;
-      document.getElementById('phone-display').textContent = phone;
-      document.getElementById('footer-phone').textContent = phone;
-      document.getElementById('insta-display').textContent = insta;
-      document.getElementById('address-display').textContent = addr;
-      document.getElementById('footer-address').textContent = addr;
-
-      const waNum = wa.replace(/[^0-9]/g,'');
-      document.getElementById('whatsapp-link').href = 'https://wa.me/'+waNum;
-      document.getElementById('navbar-whatsapp').href = 'https://wa.me/'+waNum;
-
-      const instaClean = insta.replace('@','');
-      document.getElementById('instagram-link').href = 'https://instagram.com/'+instaClean;
-
-      // Apply background color - full page
-      document.documentElement.style.background = bg;
-      document.body.style.background = bg;
-      document.getElementById('app').style.background = bg;
-      document.getElementById('main-content').style.background = bg;
-      
-      // Apply primary action color everywhere
-      document.getElementById('nav-brand').style.color = primary;
-      document.querySelectorAll('.btn-primary').forEach(el => {
-        el.style.background = primary;
-        el.style.color = '#000';
-      });
-      document.querySelectorAll('.nav-link').forEach(el => {
-        el.style.color = '#a0a0a0';
-      });
-      document.querySelectorAll('.nav-link.active').forEach(el => {
-        el.style.color = primary;
-      });
-      document.querySelectorAll('.nav-link::after').forEach(el => {
-        el.style.background = primary;
-      });
-      if (document.getElementById('cart-count')) {
-        document.getElementById('cart-count').style.background = primary;
-      }
-      
-      // Apply accent color to campaign banner
-      document.querySelectorAll('.campaign-banner').forEach(el => {
-        el.style.background = `linear-gradient(135deg, ${primary}, ${primary}dd, ${primary}99)`;
-      });
-
-      // Apply font to all text
-      const displayStack = `${font}, 'Cormorant Garamond', serif`;
-      const bodyStack = `${font}, 'Jost', sans-serif`;
-      document.querySelectorAll('.font-display').forEach(el => el.style.fontFamily = displayStack);
-      document.body.style.fontFamily = bodyStack;
-      
-      // Apply font size scale
-      const baseSize = fontSize;
-      document.body.style.fontSize = baseSize + 'px';
-      document.querySelectorAll('h1').forEach(el => el.style.fontSize = (baseSize * 2) + 'px');
-      document.querySelectorAll('h2').forEach(el => el.style.fontSize = (baseSize * 1.5) + 'px');
-      document.querySelectorAll('h3').forEach(el => el.style.fontSize = (baseSize * 1.2) + 'px');
-      document.querySelectorAll('p').forEach(el => el.style.fontSize = baseSize + 'px');
-      
-      // Rerender current page to apply new colors/fonts
-      const currentPage = Array.from(document.querySelectorAll('[id^="page-"]')).find(el => el.style.display !== 'none');
-      if (currentPage && currentPage.id === 'page-shop') {
-        filterProducts(currentFilter);
-      }
-    },
+    onConfigChange: async (config) => applyConfig(config),
     mapToCapabilities: (config) => ({
       recolorables: [
-        { get: () => config.background_color || defaultConfig.background_color, set: (v) => { config.background_color = v; window.elementSdk.setConfig({background_color:v}); }},
-        { get: () => config.surface_color || defaultConfig.surface_color, set: (v) => { config.surface_color = v; window.elementSdk.setConfig({surface_color:v}); }},
-        { get: () => config.text_color || defaultConfig.text_color, set: (v) => { config.text_color = v; window.elementSdk.setConfig({text_color:v}); }},
-        { get: () => config.primary_action_color || defaultConfig.primary_action_color, set: (v) => { config.primary_action_color = v; window.elementSdk.setConfig({primary_action_color:v}); }},
-        { get: () => config.secondary_action_color || defaultConfig.secondary_action_color, set: (v) => { config.secondary_action_color = v; window.elementSdk.setConfig({secondary_action_color:v}); }}
+        { get: () => config.background_color || defaultConfig.background_color, set: v => { config.background_color = v; window.elementSdk.setConfig({ background_color: v }); } },
+        { get: () => config.surface_color || defaultConfig.surface_color, set: v => { config.surface_color = v; window.elementSdk.setConfig({ surface_color: v }); } },
+        { get: () => config.text_color || defaultConfig.text_color, set: v => { config.text_color = v; window.elementSdk.setConfig({ text_color: v }); } },
+        { get: () => config.primary_action_color || defaultConfig.primary_action_color, set: v => { config.primary_action_color = v; window.elementSdk.setConfig({ primary_action_color: v }); } },
+        { get: () => config.secondary_action_color || defaultConfig.secondary_action_color, set: v => { config.secondary_action_color = v; window.elementSdk.setConfig({ secondary_action_color: v }); } }
       ],
       borderables: [],
-      fontEditable: { get: () => config.font_family || defaultConfig.font_family, set: (v) => { config.font_family = v; window.elementSdk.setConfig({font_family:v}); }},
-      fontSizeable: { get: () => config.font_size || defaultConfig.font_size, set: (v) => { config.font_size = v; window.elementSdk.setConfig({font_size:v}); }}
+      fontEditable: {
+        get: () => config.font_family || defaultConfig.font_family,
+        set: v => { config.font_family = v; window.elementSdk.setConfig({ font_family: v }); }
+      },
+      fontSizeable: {
+        get: () => config.font_size || defaultConfig.font_size,
+        set: v => { config.font_size = v; window.elementSdk.setConfig({ font_size: v }); }
+      }
     }),
     mapToEditPanelValues: (config) => new Map([
-      ['brand_name', config.brand_name || defaultConfig.brand_name],
+      ['company_name', config.company_name || defaultConfig.company_name],
       ['slogan', config.slogan || defaultConfig.slogan],
-      ['about_text', config.about_text || defaultConfig.about_text],
-      ['whatsapp_number', config.whatsapp_number || defaultConfig.whatsapp_number],
-      ['instagram_handle', config.instagram_handle || defaultConfig.instagram_handle],
+      ['hero_description', config.hero_description || defaultConfig.hero_description],
       ['phone_number', config.phone_number || defaultConfig.phone_number],
-      ['address', config.address || defaultConfig.address]
+      ['whatsapp_number', config.whatsapp_number || defaultConfig.whatsapp_number],
+      ['email_address', config.email_address || defaultConfig.email_address],
+      ['address_text', config.address_text || defaultConfig.address_text],
+      ['about_text', config.about_text || defaultConfig.about_text]
     ])
   });
 }
-  </script>
- <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9def872147b30d26',t:'MTc3Mzk1NTI5Ny4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+
+lucide.createIcons();
+</script>
+ <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9dd447fff56dbc3c',t:'MTc3MzY2OTU5Ni4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
 </html>
